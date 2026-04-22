@@ -1,0 +1,86 @@
+﻿<!-- 헤더 공통 컴포넌트 — 청년지갑 -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html" class="logo-home" aria-label="청년지갑 홈">
+                <span class="logo-mark" aria-hidden="true">
+                    <img class="logo-svg" src="asset/images/icon/logo.svg" alt="" aria-hidden="true">
+                </span>
+                <span class="logo-text">청년지갑</span>
+            </a>
+        </div>
+        <nav class="gnb" aria-label="주 메뉴">
+            <ul class="gnb__list">
+                <li class="gnb__item"><a href="index.html" data-page="index">홈</a></li>
+                <li class="gnb__item gnb__item--dropdown" data-nav-group="calc">
+                    <span class="gnb__parent">금융 계산기</span>
+                    <ul class="gnb__sub" role="list">
+                        <li><a href="subpage/youth-savings.html" data-page="youth-savings">미래적금 계산기</a></li>
+                        <li><a href="subpage/rent.html" data-page="rent">전월세 계산기</a></li>
+                        <li><a href="subpage/loan.html" data-page="loan">대출 계산기</a></li>
+                        <li><a href="subpage/salary.html" data-page="salary">연봉 실수령액 계산기</a></li>
+                        <li><a href="subpage/goal-100m.html" data-page="goal-100m">1억 만들기 계산기</a></li>
+                        <li><a href="subpage/usedcar.html" data-page="usedcar">중고차 구매 예산 계산기</a></li>
+                        <li><a href="subpage/living-cost.html" data-page="living-cost">자취 생활비 계산기</a></li>
+                    </ul>
+                </li>
+                <li class="gnb__item gnb__item--dropdown" data-nav-group="benefit">
+                    <span class="gnb__parent">청년 혜택</span>
+                    <ul class="gnb__sub" role="list">
+                        <li><a href="subpage/support.html" data-page="support">정부지원금 찾기</a></li>
+                        <li><a href="subpage/calendar.html" data-page="calendar">정부지원금 캘린더</a></li>
+                    </ul>
+                </li>
+                <li class="gnb__item gnb__item--dropdown" data-nav-group="guide">
+                    <span class="gnb__parent">금융 가이드</span>
+                    <ul class="gnb__sub" role="list">
+                        <li><a href="subpage/guide.html" data-page="guide">청년 재테크 입문 가이드</a></li>
+                        <li><a href="subpage/credit.html" data-page="credit">청년 신용점수 관리</a></li>
+                        <li><a href="subpage/planner.html" data-page="planner">월급 관리 플래너</a></li>
+                        <li><a href="subpage/insurance.html" data-page="insurance">청년 보험 입문 가이드</a></li>
+                        <li><a href="subpage/faq.html" data-page="faq">FAQ</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button type="button" class="hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav-panel">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div class="mobile-menu" id="mobile-nav-panel">
+        <nav class="mobile-nav" aria-label="모바일 메뉴">
+            <a href="index.html" class="mobile-nav__solo" data-page="index">홈</a>
+            <div class="mobile-nav__group">
+                <button type="button" class="mobile-nav__head" aria-expanded="false">금융 계산기</button>
+                <div class="mobile-nav__panel">
+                    <a href="subpage/youth-savings.html" data-page="youth-savings">미래적금 계산기</a>
+                    <a href="subpage/rent.html" data-page="rent">전월세 계산기</a>
+                    <a href="subpage/loan.html" data-page="loan">대출 계산기</a>
+                    <a href="subpage/salary.html" data-page="salary">연봉 실수령액 계산기</a>
+                    <a href="subpage/goal-100m.html" data-page="goal-100m">1억 만들기 계산기</a>
+                    <a href="subpage/usedcar.html" data-page="usedcar">중고차 구매 예산 계산기</a>
+                    <a href="subpage/living-cost.html" data-page="living-cost">자취 생활비 계산기</a>
+                </div>
+            </div>
+            <div class="mobile-nav__group">
+                <button type="button" class="mobile-nav__head" aria-expanded="false">청년 혜택</button>
+                <div class="mobile-nav__panel">
+                    <a href="subpage/support.html" data-page="support">정부지원금 찾기</a>
+                    <a href="subpage/calendar.html" data-page="calendar">정부지원금 캘린더</a>
+                </div>
+            </div>
+            <div class="mobile-nav__group">
+                <button type="button" class="mobile-nav__head" aria-expanded="false">금융 가이드</button>
+                <div class="mobile-nav__panel">
+                    <a href="subpage/guide.html" data-page="guide">청년 재테크 입문 가이드</a>
+                    <a href="subpage/credit.html" data-page="credit">청년 신용점수 관리</a>
+                    <a href="subpage/planner.html" data-page="planner">월급 관리 플래너</a>
+                    <a href="subpage/insurance.html" data-page="insurance">청년 보험 입문 가이드</a>
+                    <a href="subpage/faq.html" data-page="faq">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

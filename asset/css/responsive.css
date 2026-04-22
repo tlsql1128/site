@@ -1,0 +1,418 @@
+﻿/* 반응형 스타일 */
+
+/* 태블릿 */
+@media (max-width: 1199px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .page-title {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+
+    .recommend-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .calc-wrapper {
+        gap: 30px;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+    .header .container {
+        padding: 15px;
+    }
+
+    .logo-mark svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .gnb {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        padding: 48px 0 56px;
+        min-height: clamp(640px, 86vh, 760px);
+    }
+
+    .hero-kv {
+        margin-bottom: 22px;
+    }
+
+    .hero__eyebrow {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .hero .page-title {
+        font-size: clamp(1.5rem, 6vw, 1.875rem);
+        margin-bottom: 12px;
+    }
+
+    .hero-title__line {
+        display: block;
+    }
+
+    .sub-hero {
+        padding: 76px 0 76px;
+        min-height: 440px;
+    }
+
+    .sub-hero__actions .btn {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+    }
+
+    .hero .page-lead {
+        white-space: normal;
+        font-size: 14px;
+        line-height: 1.65;
+        letter-spacing: -0.01em;
+        padding: 0;
+    }
+
+    .hero-search {
+        max-width: none;
+        padding: 0 2px;
+    }
+
+    .hero-search__box {
+        padding: 6px 6px 6px 12px;
+        gap: 6px;
+        border-radius: var(--radius-lg);
+    }
+
+    .hero-search__input {
+        font-size: 14px;
+        padding: 10px 4px;
+    }
+
+    .hero-search__submit {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero-chips {
+        margin-top: 16px;
+        gap: 8px;
+    }
+
+    .hero-chip {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+
+    .features {
+        padding: 60px 0;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .flow {
+        padding: 60px 0;
+    }
+
+    .recommend {
+        padding: 56px 0 64px;
+    }
+
+    .recommend-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        gap: 18px;
+    }
+
+    .recommend-card {
+        padding: 24px 20px 22px;
+    }
+
+    .recommend-card__desc {
+        min-height: 0;
+    }
+
+    .footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* 계산기 */
+    .calculator-main {
+        padding: 40px 0;
+    }
+
+    .calc-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .calc-hero {
+        min-width: auto;
+    }
+
+    .calc-hero .hero-desc {
+        font-size: 14px;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .stat-item {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    .calc-form-wrapper {
+        min-width: auto;
+        padding: 28px 20px 32px;
+    }
+
+    .calc-title {
+        font-size: 17px;
+    }
+
+    .calc-lead {
+        font-size: 13px;
+    }
+
+    .calc-source-note {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    .section-head {
+        margin-bottom: 36px;
+        padding: 0 4px;
+    }
+
+    .section-title {
+        font-size: clamp(1.375rem, 5vw, 1.75rem);
+        line-height: 1.35;
+    }
+
+    .section-desc {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+
+    .calc-page-title {
+        font-size: clamp(1.5rem, 6vw, 1.85rem);
+    }
+
+    .calc-page-subtitle {
+        font-size: clamp(1.15rem, 4vw, 1.35rem);
+    }
+
+    .calc-hero-head {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .slider-input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .amount-summary {
+        margin-left: 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .slider-value,
+    .amount-summary-won {
+        font-size: 16px;
+    }
+
+    .slider-group .amount-input {
+        max-width: none;
+        width: 100%;
+    }
+
+    .tick-min,
+    .tick-max {
+        font-size: 10px;
+    }
+
+    .form-group input, .form-group select {
+        font-size: 16px;
+    }
+
+    .info-box {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+
+    .info-icon {
+        font-size: 14px;
+        min-width: 20px;
+    }
+
+    .calc-question h5 {
+        font-size: 14px;
+    }
+
+    .result-preview {
+        padding: 15px;
+    }
+
+    .result-item {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+
+    .result-label {
+        font-size: 12px;
+    }
+
+    .result-value {
+        font-size: 14px;
+    }
+
+    .result-item.final {
+        padding: 14px 12px;
+    }
+
+    .result-value-final {
+        font-size: 18px;
+    }
+
+    .result-won.final {
+        font-size: 16px;
+    }
+
+    .tip-box {
+        font-size: 11px;
+        padding: 10px 12px;
+    }
+
+    .tip-icon {
+        font-size: 14px;
+        min-width: 20px;
+    }
+
+    /* 청년미래적금 정보 블록 */
+    .ys-section {
+        padding: 48px 0;
+    }
+
+    .ys-card-grid--3,
+    .ys-benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ys-intro__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ys-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .ys-term__tabs {
+        width: 100%;
+    }
+
+    .ys-term-tab {
+        flex: 1;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .ys-term-panels {
+        min-height: 0;
+    }
+
+    .ys-example-table th,
+    .ys-example-table td {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .ys-cta {
+        padding: 36px 0 40px;
+    }
+
+    .ys-cta__title {
+        font-size: 1.25rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .ys-cta__lead {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* 설명 섹션 */
+    .features-sub {
+        padding: 60px 0;
+    }
+
+    .feature-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison {
+        padding: 60px 0;
+    }
+
+    .compare-table {
+        flex-direction: column;
+    }
+
+    .faq {
+        padding: 60px 0;
+    }
+
+    .notice {
+        padding: 60px 0;
+    }
+}

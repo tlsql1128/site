@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년 대출 계산기. 대출금액·금리·기간을 입력해 월 상환액, 총 이자, 원리금균등·원금균등 상환을 비교하세요.">
+    <meta name="keywords" content="청년, 대출, 계산기, 원리금균등, 원금균등, 월 상환액">
+    <meta property="og:title" content="청년 대출 계산기 | 청년지갑">
+    <title>청년 대출 계산기 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/loan.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/loan.js" defer></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="loan-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 의사결정 도우미</p>
+            <h1 id="loan-hero-title" class="sub-hero__title">청년 대출 계산기</h1>
+            <p class="sub-hero__desc">대출금액, 금리, 상환기간만 입력하면<br>월 납입금과 총 상환금액을 한눈에 확인할 수 있습니다.<br>원리금균등과 원금균등 방식도 비교해 보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-calculator" class="btn primary">계산 시작하기</a>
+                <a href="#section-repay-info" class="btn secondary">상환 방식 알아보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-calculator" class="loan-main">
+        <div class="container">
+            <p class="loan-source-note" role="note">본 계산 결과는 참고용이며, 실제 약관·수수료·거치기간 등에 따라 달라질 수 있습니다.</p>
+
+            <div class="loan-calc-layout">
+                <div class="loan-card loan-card--input">
+                    <div class="loan-card__head">
+                        <h2 class="loan-card__title">입력 정보</h2>
+                        <p class="loan-card__desc">값을 입력한 뒤 <strong>계산하기</strong>를 눌러 주세요.</p>
+                    </div>
+
+                    <div class="loan-field">
+                        <label class="loan-label" for="loan-amount-input">대출금액</label>
+                        <div class="loan-row">
+                            <input type="text" inputmode="numeric" id="loan-amount-input" class="loan-input loan-input--money" placeholder="10,000,000" autocomplete="off" aria-describedby="loan-amount-hint">
+                            <span class="loan-unit">원</span>
+                        </div>
+                        <input type="range" id="loan-amount-slider" class="loan-slider" min="1000000" max="100000000" value="10000000" step="1000000" aria-label="대출금액 슬라이더">
+                        <div class="loan-slider-ticks"><span>100만 원</span><span>1억 원</span></div>
+                        <p id="loan-amount-hint" class="loan-hint">100만 원 ~ 1억 원 범위(백만 원 단위 조정 가능)</p>
+                    </div>
+
+                    <div class="loan-field">
+                        <span class="loan-label" id="rate-label">연 이자율</span>
+                        <div class="loan-rate-presets" role="group" aria-labelledby="rate-label">
+                            <button type="button" class="loan-rate-pill" data-rate="2.5">2.5%</button>
+                            <button type="button" class="loan-rate-pill" data-rate="3.5">3.5%</button>
+                            <button type="button" class="loan-rate-pill is-active" data-rate="4.5">4.5%</button>
+                        </div>
+                        <div class="loan-row loan-row--rate">
+                            <label for="loan-rate-input" class="loan-sr-only">직접 입력 금리</label>
+                            <input type="number" id="loan-rate-input" class="loan-input loan-input--narrow" min="0" max="30" step="0.01" value="4.5">
+                            <span class="loan-unit">%</span>
+                        </div>
+                    </div>
+
+                    <fieldset class="loan-field loan-fieldset">
+                        <legend class="loan-label">상환 기간</legend>
+                        <div class="loan-year-tabs" role="tablist">
+                            <button type="button" class="loan-year-tab" data-years="1" role="tab" aria-selected="false">1년</button>
+                            <button type="button" class="loan-year-tab" data-years="3" role="tab" aria-selected="false">3년</button>
+                            <button type="button" class="loan-year-tab is-active" data-years="5" role="tab" aria-selected="true">5년</button>
+                            <button type="button" class="loan-year-tab" data-years="10" role="tab" aria-selected="false">10년</button>
+                        </div>
+                        <p class="loan-hint" id="loan-months-hint">상환 개월 수: <strong id="loan-months-display">60</strong>개월</p>
+                    </fieldset>
+
+                    <div class="loan-field">
+                        <span class="loan-label" id="method-label">상환 방식</span>
+                        <div class="loan-method-tabs" role="tablist" aria-labelledby="method-label">
+                            <button type="button" id="tab-annuity" class="loan-method-tab is-active" data-method="annuity" role="tab" aria-selected="true" aria-controls="panel-result">원리금균등</button>
+                            <button type="button" id="tab-principal" class="loan-method-tab" data-method="principal" role="tab" aria-selected="false" aria-controls="panel-result">원금균등</button>
+                        </div>
+                    </div>
+
+                    <div class="loan-field loan-field--optional">
+                        <label class="loan-check">
+                            <input type="checkbox" id="opt-grace"> 거치기간 있음(참고·계산식 미반영)
+                        </label>
+                        <label class="loan-check">
+                            <input type="checkbox" id="opt-fee"> 중도상환 수수료 가능성 있음(참고만)
+                        </label>
+                    </div>
+
+                    <p class="loan-error" id="loan-error" role="alert"></p>
+                    <button type="button" class="loan-btn loan-btn--primary loan-btn--block" id="btn-loan-calc">계산하기</button>
+                </div>
+
+                <div class="loan-card loan-card--result" id="panel-result" role="tabpanel" aria-labelledby="tab-annuity">
+                    <div class="loan-card__head">
+                        <h2 class="loan-card__title">계산 결과</h2>
+                        <p class="loan-card__desc">선택한 상환 방식 기준입니다.</p>
+                    </div>
+
+                    <p class="loan-result-method" id="result-method-label">원리금균등 기준</p>
+
+                    <div class="loan-result-hero">
+                        <span class="loan-result-hero__label">월 납입금</span>
+                        <p class="loan-result-hero__value"><span id="result-monthly" data-val="0">0</span><span class="loan-result-won">원</span></p>
+                    </div>
+
+                    <ul class="loan-result-list">
+                        <li><span>총 이자</span><strong><span id="result-interest" data-val="0">0</span> 원</strong></li>
+                        <li><span>총 상환액</span><strong><span id="result-total" data-val="0">0</span> 원</strong></li>
+                    </ul>
+
+                    <p class="loan-result-summary" id="result-summary">대출금액과 금리, 기간을 입력한 뒤 계산하기를 눌러 주세요.</p>
+                </div>
+            </div>
+
+            <!-- 비교 -->
+            <div id="section-compare" class="loan-compare loan-reveal">
+                <h3 class="loan-compare__title">상환 방식 비교</h3>
+                <p class="loan-compare__desc">동일 조건에서 두 방식의 차이를 요약했습니다.</p>
+                <div class="loan-compare-grid">
+                    <div class="loan-compare-card">
+                        <h4 class="loan-compare-card__name">원리금균등</h4>
+                        <p class="loan-compare-card__tip">매달 같은 금액을 납입해 예산 관리가 쉽습니다.</p>
+                        <ul class="loan-compare-stats">
+                            <li><span>첫 달 상환</span><strong id="cmp-ann-first">—</strong></li>
+                            <li><span>평균 월 부담</span><strong id="cmp-ann-avg">—</strong></li>
+                            <li><span>총 이자</span><strong id="cmp-ann-int">—</strong></li>
+                            <li><span>총 상환</span><strong id="cmp-ann-tot">—</strong></li>
+                        </ul>
+                    </div>
+                    <div class="loan-compare-card">
+                        <h4 class="loan-compare-card__name">원금균등</h4>
+                        <p class="loan-compare-card__tip">초반 부담은 크지만 총 이자가 더 적을 수 있습니다.</p>
+                        <ul class="loan-compare-stats">
+                            <li><span>첫 달 상환</span><strong id="cmp-prin-first">—</strong></li>
+                            <li><span>평균 월 부담</span><strong id="cmp-prin-avg">—</strong></li>
+                            <li><span>총 이자</span><strong id="cmp-prin-int">—</strong></li>
+                            <li><span>총 상환</span><strong id="cmp-prin-tot">—</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 스케줄 -->
+            <div id="section-schedule" class="loan-schedule loan-reveal">
+                <h3 class="loan-schedule__title">월별 상환 예시</h3>
+                <p class="loan-schedule__desc">선택한 상환 방식 기준입니다. 처음 12개월을 표시합니다.</p>
+                <div class="loan-table-wrap">
+                    <table class="loan-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">회차</th>
+                                <th scope="col">납입금</th>
+                                <th scope="col">원금</th>
+                                <th scope="col">이자</th>
+                                <th scope="col">잔액</th>
+                            </tr>
+                        </thead>
+                        <tbody id="loan-schedule-body">
+                            <tr><td colspan="5" class="loan-table__empty">계산 후 표시됩니다.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" class="loan-btn loan-btn--ghost loan-btn--more" id="btn-schedule-more" hidden>더보기 (전체 회차)</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-repay-info" class="loan-info">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">상환 방식 이해하기</h2>
+                <p class="section-desc"><strong>원리금균등</strong>은 매월 납입액이 같고, <strong>원금균등</strong>은 매월 갚는 원금이 같아 이자는 줄어듭니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-tips" class="loan-info loan-info--muted">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년 대출 이용 팁</h2>
+            </div>
+            <div class="loan-triple">
+                <article class="loan-tip-card loan-reveal">
+                    <h3 class="loan-tip-card__title">금리만 보지 말고 총 상환액도 확인하세요</h3>
+                    <p class="loan-tip-card__text">월 납입금이 낮아 보여도 기간이 길면 총 이자가 커질 수 있습니다.</p>
+                </article>
+                <article class="loan-tip-card loan-reveal">
+                    <h3 class="loan-tip-card__title">상환 방식에 따라 초반 부담이 달라집니다</h3>
+                    <p class="loan-tip-card__text">원금균등은 초기 상환액이 높을 수 있으니 현금 흐름을 함께 검토하세요.</p>
+                </article>
+                <article class="loan-tip-card loan-reveal">
+                    <h3 class="loan-tip-card__title">고정·변동 금리 여부를 확인하세요</h3>
+                    <p class="loan-tip-card__text">변동금리는 시장 금리에 따라 이후 부담이 달라질 수 있습니다.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-audience" class="loan-info">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">이런 분께 추천합니다</h2>
+            </div>
+            <ul class="loan-audience">
+                <li class="loan-audience__item loan-reveal">사회초년생</li>
+                <li class="loan-audience__item loan-reveal">학자금·생활자금·전세자금 계획 중인 청년</li>
+                <li class="loan-audience__item loan-reveal">대출 상환 계획을 미리 세워 보고 싶은 사용자</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="section-check" class="loan-info loan-info--muted">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년지갑 체크포인트</h2>
+            </div>
+            <ul class="loan-checklist">
+                <li class="loan-reveal">월 소득 대비 상환 비율(부채상환비율)을 점검하세요.</li>
+                <li class="loan-reveal">비상금과 대출 상환을 구분해 관리하면 안전합니다.</li>
+                <li class="loan-reveal">장기 대출일수록 총 이자 부담이 커질 수 있습니다.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="section-faq" class="loan-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">원리금균등과 원금균등은 무엇이 다른가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>원리금균등은 매월 납입 총액이 동일하고, 원금균등은 매월 상환하는 원금이 같아 초기 납입이 더 큰 경우가 많습니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">어떤 상환 방식이 더 유리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>총 이자만 보면 원금균등이 유리한 경우가 많지만, 초기 현금 부담이 클 수 있어 소득·지출 계획과 함께 보아야 합니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">금리가 조금만 올라가도 부담이 커지나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>대출 규모와 기간이 클수록 금리 변동의 영향이 커질 수 있습니다. 변동금리 대출은 특히 주기적으로 점검하는 것이 좋습니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">월 납입금은 어떻게 계산되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>원리금균등은 대출 잔액·금리·잔여 기간을 이용한 할부상환 공식으로, 원금균등은 매월 동일한 원금에 잔액 이자를 더해 산출합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-notice" class="loan-notice">
+        <div class="container">
+            <p class="loan-notice__text">본 계산기는 이해를 돕기 위한 참고용이며, 실제 금융기관의 상환 방식·절사·수수료·보험료 등과 다를 수 있습니다. 계약 전 반드시 약관 및 상품설명서를 확인하세요.</p>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,747 @@
+/* 청년 전월세 계산기 — rent.html 전용 (style.css 톤과 연동) */
+
+[id^="section-"] {
+    scroll-margin-top: 80px;
+}
+
+/* ----- HERO ----- */
+.rent-hero {
+    padding: 64px 0 72px;
+    background: linear-gradient(165deg, #eef4fb 0%, #f6f8fb 45%, #fff 100%);
+    border-bottom: 1px solid #e8eaee;
+}
+
+.rent-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.rent-hero__text {
+    min-width: 0;
+}
+
+.rent-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0078c8;
+    background: #e8f4fc;
+    margin-bottom: 16px;
+}
+
+.rent-hero__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.28;
+    color: #111827;
+    margin: 0 0 16px;
+    letter-spacing: -0.03em;
+}
+
+.rent-hero__lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #5c6370;
+    margin: 0 0 28px;
+}
+
+.rent-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.rent-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.rent-btn--primary {
+    background: linear-gradient(135deg, #0078c8 0%, #0c8ecf 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 120, 200, 0.28);
+}
+
+.rent-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 120, 200, 0.35);
+}
+
+.rent-btn--ghost {
+    background: #fff;
+    color: #0078c8;
+    border-color: #c5dce8;
+}
+
+.rent-btn--ghost:hover {
+    background: #f0f7fc;
+    border-color: #0c8ecf;
+    transform: translateY(-2px);
+}
+
+.rent-btn--block {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* (장식용 아이콘 박스 영역 제거됨) */
+
+/* ----- MAIN CALC ----- */
+.rent-main {
+    padding: 56px 0 72px;
+    background: #f0f2f5;
+}
+
+.rent-calc-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.rent-card {
+    background: #fff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 20px;
+    padding: 28px 26px 32px;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.rent-card:hover {
+    box-shadow: 0 12px 36px rgba(99, 102, 241, 0.1);
+    border-color: rgba(199, 210, 254, 0.8);
+}
+
+.rent-card__head {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eef1f5;
+}
+
+.rent-card__title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 6px;
+}
+
+.rent-card__desc {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.rent-field {
+    margin-bottom: 20px;
+}
+
+.rent-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.rent-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #d8dde3;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rent-input:focus {
+    outline: none;
+    border-color: #0c8ecf;
+    box-shadow: 0 0 0 3px rgba(12, 142, 207, 0.12);
+}
+
+.rent-input:disabled {
+    background: #f3f4f6;
+    color: #9ca3af;
+}
+
+.rent-budget-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rent-input--money {
+    flex: 1;
+    max-width: 220px;
+}
+
+.rent-unit {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.rent-slider {
+    width: 100%;
+    margin-top: 12px;
+    height: 28px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.rent-slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(to right, #0c8ecf var(--rent-pct, 50%), #d9d9d9 var(--rent-pct, 50%), #d9d9d9 100%);
+}
+
+.rent-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: -6px;
+    border-radius: 50%;
+    background: #0c8ecf;
+    box-shadow: 0 1px 4px rgba(12, 142, 207, 0.4);
+}
+
+.rent-slider::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: #d9d9d9;
+}
+
+.rent-slider::-moz-range-progress {
+    height: 6px;
+    border-radius: 999px;
+    background: #0c8ecf;
+}
+
+.rent-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background: #0c8ecf;
+}
+
+.rent-slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #888;
+    margin-top: 6px;
+}
+
+.rent-hint {
+    font-size: 12px;
+    color: #8b919c;
+    margin: 8px 0 0;
+}
+
+.rent-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.rent-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid #d8dde3;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.rent-chip:has(input:checked),
+.rent-chip.is-checked {
+    border-color: #0c8ecf;
+    background: #e8f4fc;
+    color: #0078c8;
+    font-weight: 600;
+}
+
+.rent-chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rent-preset-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.rent-preset {
+    padding: 8px 14px;
+    border: 1px solid #d8dde3;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rent-preset:hover,
+.rent-preset.is-active {
+    border-color: #0c8ecf;
+    color: #0078c8;
+    background: #f0f7fc;
+}
+
+.rent-period {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rent-period-btn {
+    flex: 1;
+    min-width: 72px;
+    text-align: center;
+    padding: 10px 12px;
+    border: 1px solid #d8dde3;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rent-period-btn:has(input:checked),
+.rent-period-btn.is-checked {
+    border-color: #0c8ecf;
+    background: linear-gradient(180deg, #f0f7fc 0%, #e8f2fa 100%);
+    color: #0078c8;
+}
+
+.rent-period-btn input {
+    position: absolute;
+    opacity: 0;
+}
+
+.rent-select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #d8dde3;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+}
+
+.rent-field--loan.disabled {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.rent-error {
+    color: #dc2626;
+    font-size: 13px;
+    min-height: 1.25em;
+    margin: 0 0 8px;
+}
+
+/* 결과 카드 */
+.rent-card--result .rent-result-block {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eef1f5;
+}
+
+.rent-card--result .rent-result-block:last-of-type {
+    border-bottom: none;
+}
+
+.rent-result__label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6b7280;
+    margin: 0 0 8px;
+}
+
+.rent-result__text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #374151;
+    margin: 0;
+}
+
+.rent-result__big {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0078c8;
+    font-variant-numeric: tabular-nums;
+}
+
+.rent-won {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.rent-result__sub {
+    font-size: 12px;
+    color: #8b919c;
+    margin: 6px 0 0;
+}
+
+.rent-total-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rent-total-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.rent-total-list li:last-child {
+    border-bottom: none;
+}
+
+.rent-total-list strong {
+    color: #0078c8;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.rent-recommend {
+    margin-top: 8px;
+    padding: 18px 18px;
+    background: linear-gradient(135deg, #f0f7fc 0%, #e8f2fa 100%);
+    border: 1px solid #c5dce8;
+    border-radius: 12px;
+}
+
+.rent-recommend__title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #0078c8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 8px;
+}
+
+.rent-recommend__body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #1f2937;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* 막대 그래프 */
+.rent-chart-card {
+    margin-top: 32px;
+    padding: 24px 26px;
+    background: #fff;
+    border: 1px solid #e8eaee;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rent-chart__title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0 0 6px;
+}
+
+.rent-chart__desc {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0 0 24px;
+}
+
+.rent-bars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: flex-end;
+    min-height: 200px;
+}
+
+.rent-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.rent-bar {
+    width: 100%;
+    max-width: 100px;
+    height: 160px;
+    background: linear-gradient(180deg, #eef1f5 0%, #e2e8f0 100%);
+    border-radius: 10px 10px 6px 6px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.rent-bar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--h, 0%);
+    max-height: 100%;
+    background: linear-gradient(180deg, #0c8ecf 0%, #0078c8 100%);
+    border-radius: 8px 8px 4px 4px;
+    transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rent-bar--jeonse::after {
+    background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.rent-bar--loan::after {
+    background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+}
+
+.rent-bar__val {
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    padding-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.rent-bar__name {
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+    line-height: 1.35;
+}
+
+/* 정보 섹션 */
+.rent-info {
+    padding: 72px 0;
+    background: #fff;
+}
+
+.rent-info--muted {
+    background: #f6f8fb;
+}
+
+.rent-how-list {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: 22px;
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.rent-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.rent-mini-card,
+.rent-region-card {
+    background: #fff;
+    border: 1px solid #e8eaee;
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+.rent-info--muted .rent-mini-card,
+.rent-info--muted .rent-region-card {
+    background: #fff;
+}
+
+.rent-mini-card:hover,
+.rent-region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.1);
+}
+
+.rent-mini-card__title,
+.rent-region-card__title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0078c8;
+    margin: 0 0 10px;
+}
+
+.rent-mini-card__text,
+.rent-region-card__text {
+    font-size: 14px;
+    color: #5c6370;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.rent-region-card__stat {
+    font-size: 14px;
+    color: #374151;
+    margin: 0 0 8px;
+}
+
+.rent-region-card__stat strong {
+    color: #0078c8;
+}
+
+.rent-audience {
+    list-style: none;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.rent-audience__item {
+    position: relative;
+    padding: 16px 18px 16px 48px;
+    margin-bottom: 12px;
+    background: #fff;
+    border: 1px solid #e8eaee;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #374151;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.rent-audience__item::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 1.35rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #0c8ecf;
+}
+
+.rent-faq {
+    padding: 72px 0;
+    background: #fff;
+}
+
+.rent-notice {
+    padding: 40px 0 56px;
+    background: #f0f2f5;
+}
+
+.rent-notice__text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.65;
+    text-align: center;
+}
+
+/* 스크롤 등장 */
+.rent-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.rent-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----- 반응형 ----- */
+@media (max-width: 991px) {
+    .rent-hero__grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .rent-hero__actions {
+        justify-content: center;
+    }
+
+    .rent-hero__visual {
+        order: -1;
+    }
+
+    .rent-calc-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .rent-bars {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .rent-bar {
+        height: 120px;
+        max-width: 100%;
+    }
+
+    .rent-triple {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .rent-hero {
+        padding: 48px 0 40px;
+    }
+
+    .rent-input--money {
+        max-width: none;
+    }
+
+    .rent-chip,
+    .rent-period-btn {
+        font-size: 12px;
+    }
+
+    .rent-result__big {
+        font-size: 1.65rem;
+    }
+}

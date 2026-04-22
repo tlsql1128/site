@@ -1,0 +1,351 @@
+/* 월급 관리 플래너 — planner.html */
+
+.page-planner [id^="section-"] {
+    scroll-margin-top: 96px;
+}
+
+.planner-main {
+    padding: 44px 0 70px;
+    background: #f1f5f9;
+}
+
+.planner-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 22px;
+    max-width: 1120px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.planner-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    padding: 26px 22px 28px;
+}
+
+.planner-card__head {
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.planner-card__title {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #111827;
+}
+
+.planner-card__desc {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.field {
+    margin-bottom: 14px;
+}
+
+.field:last-child {
+    margin-bottom: 0;
+}
+
+.field__label {
+    display: block;
+    font-size: 13px;
+    font-weight: 900;
+    color: #334155;
+    margin: 0 0 8px;
+}
+
+.field__row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.field__row--tight {
+    margin-top: 10px;
+}
+
+.field__input,
+.field__select {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #dbe3ef;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field__select {
+    font-weight: 800;
+    color: #334155;
+}
+
+.field__input:focus,
+.field__select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.field__unit {
+    flex-shrink: 0;
+    font-weight: 900;
+    color: #64748b;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 13px;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+    border-color: #c7d2fe;
+    background: #f8fafc;
+}
+
+.pill.is-active {
+    border-color: #c7d2fe;
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.planner-actions {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.planner-btn {
+    width: 100%;
+    border-radius: 16px;
+    min-height: 52px;
+    font-weight: 900;
+}
+
+.planner-error {
+    margin: 0;
+    font-size: 12px;
+    color: #ef4444;
+    min-height: 1.2em;
+}
+
+.donut-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 6px 0 12px;
+}
+
+.donut {
+    position: relative;
+    z-index: 0;
+    flex: 0 0 auto;
+    width: 210px;
+    height: 210px;
+    max-width: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#6366f1 0 25%, #22d3ee 25% 55%, #a855f7 55% 80%, #f59e0b 80% 100%);
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.donut::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64.7%;
+    height: 64.7%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* 카드( planner-card )와 톤 맞춤 — 별도 떠 보이는 흰디스크·이중 테두리 방지 */
+    background: rgba(255, 255, 255, 0.96);
+    border: 0;
+    box-shadow: none;
+}
+
+.donut-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    pointer-events: none;
+    max-width: min(140px, 60%);
+}
+
+.donut-center__label {
+    font-size: 12px;
+    font-weight: 900;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.donut-center__value {
+    font-size: 16px;
+    font-weight: 900;
+    color: #111827;
+}
+
+.bars {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.bar {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 12px 12px;
+    background: #fff;
+}
+
+.bar__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.bar__name {
+    font-size: 12px;
+    font-weight: 900;
+    color: #334155;
+}
+
+.bar__val {
+    font-size: 12px;
+    font-weight: 900;
+    color: #4338ca;
+}
+
+.bar__track {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar__fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    transition: width 0.55s ease;
+}
+
+.summary {
+    margin-top: 14px;
+    padding: 14px 14px;
+    border-radius: 18px;
+    border: 1px dashed #c7d2fe;
+    background: rgba(238, 242, 255, 0.6);
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 800;
+}
+
+.planner-section {
+    padding: 60px 0 70px;
+    background: #f1f5f9;
+}
+
+.planner-section--white {
+    background: #fff;
+}
+
+.routine-grid,
+.tip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.routine-card,
+.tip-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px 16px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+    height: 100%;
+}
+
+.routine-card h3,
+.tip-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.routine-card p,
+.tip-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+@media (max-width: 1040px) {
+    .planner-layout {
+        grid-template-columns: 1fr;
+    }
+    .routine-grid,
+    .tip-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .donut {
+        width: 196px;
+        height: 196px;
+    }
+    .donut-center {
+        max-width: min(120px, 58%);
+    }
+}
+

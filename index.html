@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년지갑 — 미래적금·전월세·대출·연봉 계산을 한곳에서. 청년 금융을 더 쉽게.">
+    <meta property="og:title" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta property="og:description" content="미래적금부터 주거·대출·연봉까지, 필요한 계산을 빠르게 확인하세요.">
+    <meta property="og:type" content="website">
+    <title>청년지갑 | 청년 금융·계산 플랫폼</title>
+    <link rel="icon" href="asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/responsive.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="asset/js/common.js"></script>
+    <script src="asset/js/home.js" defer></script>
+</head>
+<body class="page-home">
+    <div id="header"></div>
+
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="container hero__inner">
+            <div class="hero-kv">
+                <p class="hero__eyebrow">청년지갑 · Youth Wallet</p>
+                <h2 id="hero-title" class="page-title">
+                    <span class="hero-title__line">청년의 금융 고민,</span>
+                    <span class="hero-title__line hero-title__line--strong">청년지갑 하나로</span>
+                </h2>
+                <p class="page-lead">전월세·대출·연봉·미래적금까지, 청년에게 꼭 필요한 금융 계산을 한곳에서 쉽고 빠르게 확인하세요.</p>
+            </div>
+
+            <div class="hero-search" role="search">
+                <label class="hero-search__label visually-hidden" for="hero-search-input">통합 검색 — 계산기·기능 찾기</label>
+                <form id="hero-search-form" class="hero-search__form" autocomplete="off">
+                    <div class="hero-search__box">
+                        <span class="hero-search__icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <input
+                            type="search"
+                            id="hero-search-input"
+                            class="hero-search__input"
+                            placeholder="찾고 싶은 계산기를 검색해보세요 · 예: 전월세, 대출, 실수령액"
+                            aria-label="통합 검색"
+                            aria-autocomplete="list"
+                            aria-controls="hero-search-suggest"
+                            aria-expanded="false"
+                            maxlength="80"
+                        />
+                        <button type="submit" class="hero-search__submit" aria-label="검색 실행">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <ul id="hero-search-suggest" class="hero-search__suggest" role="listbox" hidden></ul>
+                </form>
+                <p id="hero-search-feedback" class="hero-search__feedback" role="status" aria-live="polite"></p>
+
+                <div class="hero-chips" aria-label="추천 검색 키워드">
+                    <button type="button" class="hero-chip" data-href="subpage/youth-savings.html">#미래적금</button>
+                    <button type="button" class="hero-chip" data-href="subpage/rent.html">#전월세</button>
+                    <button type="button" class="hero-chip" data-href="subpage/loan.html">#대출</button>
+                    <button type="button" class="hero-chip" data-href="subpage/salary.html">#연봉</button>
+                    <button type="button" class="hero-chip" data-href="subpage/support.html">#정부지원금</button>
+                    <button type="button" class="hero-chip" data-href="subpage/faq.html">#FAQ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">주요 기능</h2>
+                <p class="section-desc">이 사이트에서 제공하는 대표 서비스입니다.</p>
+            </div>
+            <div class="feature-cards">
+                <div class="card card--feature">
+                    <span class="card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M6 9h12M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <h4><a href="subpage/youth-savings.html" class="card-title-link">청년 미래적금 계산기</a></h4>
+                    <p class="card__desc">정부지원 포함 예상 수령액 계산</p>
+                </div>
+                <div class="card card--feature">
+                    <span class="card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 10h16v10H4V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <h4><a href="subpage/rent.html" class="card-title-link">청년 전월세 계산기</a></h4>
+                    <p class="card__desc">예산 기준 전세·월세 비교 계산</p>
+                </div>
+                <div class="card card--feature">
+                    <span class="card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <h4><a href="subpage/loan.html" class="card-title-link">청년 대출 계산기</a></h4>
+                    <p class="card__desc">월 상환금과 총 이자 확인</p>
+                </div>
+                <div class="card card--feature">
+                    <span class="card__icon" aria-hidden="true">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M8 9h8M8 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <h4><a href="subpage/salary.html" class="card-title-link">연봉 실수령액 계산기</a></h4>
+                    <p class="card__desc">월 실수령액과 공제액 확인</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">이용 방법</h2>
+                <p class="section-desc">메뉴를 따라 세 단계로 이용할 수 있습니다.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h4>원하는 기능 선택</h4>
+                    <p>메뉴에서 필요한 기능을 선택하세요.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h4>정보 입력</h4>
+                    <p>필요한 정보를 입력하거나 선택하세요.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h4>결과 확인</h4>
+                    <p>계산 결과나 안내를 확인하세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recommend">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">추천 기능</h2>
+                <p class="section-desc">자주 찾는 계산기로 바로 이동해 보세요.</p>
+            </div>
+            <div class="recommend-grid">
+                <article class="recommend-card">
+                    <h3 class="recommend-card__title">청년 미래적금 계산기</h3>
+                    <p class="recommend-card__desc">3년 만기 기준으로 정부 지원금과 이자를 포함한 예상 수령액을 계산해 보세요.</p>
+                    <a href="subpage/youth-savings.html" class="btn primary recommend-card__btn">바로가기</a>
+                </article>
+                <article class="recommend-card">
+                    <h3 class="recommend-card__title">청년 전월세 계산기</h3>
+                    <p class="recommend-card__desc">현재 예산으로 전세와 월세 중 어떤 선택이 더 유리한지 비교해 보세요.</p>
+                    <a href="subpage/rent.html" class="btn primary recommend-card__btn">바로가기</a>
+                </article>
+                <article class="recommend-card">
+                    <h3 class="recommend-card__title">청년 대출 계산기</h3>
+                    <p class="recommend-card__desc">대출금액, 금리, 상환기간을 입력하고 월 납입금을 미리 계산해 보세요.</p>
+                    <a href="subpage/loan.html" class="btn primary recommend-card__btn">바로가기</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

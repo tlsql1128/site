@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년지갑 정부지원금 캘린더. 청년 대상 지원금·정책 일정을 월별로 확인하세요.">
+    <meta property="og:title" content="정부지원금 캘린더 | 청년지갑">
+    <title>정부지원금 캘린더 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/calendar.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/calendar.js" defer></script>
+</head>
+<body class="page-cal">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="cal-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 일정</p>
+            <h1 id="cal-hero-title" class="sub-hero__title">정부지원금 캘린더</h1>
+            <p class="sub-hero__desc">청년 대상 지원금과 정책 일정을<br>월별 캘린더로 빠르게 확인하세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-cal-main" class="btn primary">이번 달 혜택 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-cal-main" class="cal-main">
+        <div class="container">
+            <div class="cal-toolbar">
+                <div class="cal-month-nav">
+                    <button type="button" class="cal-month-nav__btn" id="cal-prev" aria-label="이전 달">‹</button>
+                    <div class="cal-month-label" id="cal-month-label" aria-live="polite">2026년 4월</div>
+                    <button type="button" class="cal-month-nav__btn" id="cal-next" aria-label="다음 달">›</button>
+                </div>
+                <div class="cal-filters">
+                    <label class="visually-hidden" for="cal-filter-region">지역</label>
+                    <select id="cal-filter-region" aria-label="지역 필터">
+                        <option value="all">전국</option>
+                        <option value="national">중앙·공통</option>
+                        <option value="seoul">서울</option>
+                        <option value="gyeonggi">경기</option>
+                    </select>
+                    <label class="visually-hidden" for="cal-filter-cat">카테고리</label>
+                    <select id="cal-filter-cat" aria-label="카테고리 필터">
+                        <option value="all">전체</option>
+                        <option value="housing">주거</option>
+                        <option value="job">취업</option>
+                        <option value="save">저축</option>
+                        <option value="traffic">교통</option>
+                    </select>
+                </div>
+            </div>
+            <p class="cal-legend">
+                <span><span class="cal-dot cal-dot--start"></span> 신청 시작</span>
+                <span><span class="cal-dot cal-dot--deadline"></span> 마감 임박</span>
+                <span><span class="cal-dot cal-dot--ongoing"></span> 상시 모집</span>
+                <span><span class="cal-dot cal-dot--local"></span> 지역 한정</span>
+            </p>
+
+            <div class="cal-layout">
+                <div class="cal-card">
+                    <div class="cal-weekdays" id="cal-weekdays" role="row"></div>
+                    <div class="cal-grid" id="cal-grid" role="grid" aria-label="월별 캘린더"></div>
+                </div>
+                <aside class="cal-side">
+                    <div class="cal-side__block">
+                        <h3>오늘 마감 임박 TOP3</h3>
+                        <ul class="cal-side__list" id="cal-top3"></ul>
+                    </div>
+                    <div class="cal-side__block">
+                        <h3>이번 달 인기 키워드</h3>
+                        <ul class="cal-side__list">
+                            <li>청년월세지원</li>
+                            <li>청년도약계좌</li>
+                            <li>국민취업지원제도</li>
+                        </ul>
+                    </div>
+                    <p class="cal-detail__empty" style="font-size:12px;margin:0;">표시 일정은 참고용 예시이며, 실제 접수 기간은 정부·지자체 공고를 확인하세요.</p>
+                </aside>
+            </div>
+
+            <div class="cal-detail" id="cal-detail">
+                <div id="cal-detail-body">
+                    <p class="cal-detail__empty">날짜를 선택하면 상세 일정이 표시됩니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="cal-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">실제 일정과 동일한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>아닙니다. 이해를 돕기 위한 예시 일정이며, 실제 접수·마감은 부처·지자체 공고를 확인해야 합니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">지역별 일정도 다르나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>네. 지자체 사업은 지역·분기별로 일정이 다를 수 있습니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">신청 링크는 어디서 보나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>정부24, 복지로, 해당 지자체 청년 포털 등 공식 사이트에서 최신 공고를 확인하세요.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

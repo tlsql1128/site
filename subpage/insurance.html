@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년 보험 입문 가이드 — 실비보험부터 보장/특약/갱신형 개념까지 청년 눈높이로 정리합니다.">
+    <meta property="og:title" content="청년 보험 입문 가이드 | 청년지갑">
+    <title>청년 보험 입문 가이드 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/insurance.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/insurance.js" defer></script>
+</head>
+<body class="page-insurance">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="ins-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 보험 기초 가이드</p>
+            <h1 id="ins-hero-title" class="sub-hero__title">청년 보험 입문 가이드</h1>
+            <p class="sub-hero__desc">보험이 처음이어도 괜찮아요.<br>청년에게 자주 필요한 보험 개념부터 쉽게 정리해보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-terms" class="btn primary">기초부터 보기</a>
+                <a href="#section-terms" class="btn secondary">보험 용어 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-search" class="sub-hero__below" aria-label="보험 용어 검색">
+        <div class="sub-hero__below-inner">
+            <div class="sub-hero-card">
+                <label class="visually-hidden" for="ins-search">보험 용어 검색</label>
+                <input type="search" id="ins-search" class="ins-search__input" placeholder="보험 용어를 검색해보세요. 예: 실비, 특약, 갱신형" maxlength="40" aria-label="보험 용어 검색">
+                <p id="ins-search-feedback" style="margin:10px 0 0;font-size:12px;color:#64748b;" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <main class="ins-main" id="section-terms">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">보험 기초 용어</h2>
+                <p class="section-desc">카드를 누르면 ‘쉽게 설명’을 더 볼 수 있어요.</p>
+            </div>
+
+            <div class="ins-terms" id="ins-terms">
+                <!-- JS render -->
+            </div>
+        </div>
+    </main>
+
+    <section id="section-youth" class="ins-section ins-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년에게 자주 필요한 보험 개념</h2>
+            </div>
+            <div class="ins-grid">
+                <article class="ins-card"><h3>실손(실비) 개념</h3><p>병원비를 ‘일부 보전’하는 구조가 많아요. 보장 범위와 제외 항목을 꼭 확인하세요.</p></article>
+                <article class="ins-card"><h3>운전자 관련 보험</h3><p>운전을 한다면 사고 처리 비용/법률 비용처럼 ‘큰 지출’을 대비하는 관점이 필요해요.</p></article>
+                <article class="ins-card"><h3>상해·입원·진단 보장</h3><p>큰 사고/질병의 ‘일시금’ 보장 여부가 핵심이에요. 필요 이상으로 과한 특약은 주의!</p></article>
+                <article class="ins-card"><h3>회사 단체보험이 있어도?</h3><p>퇴사/휴직 시 보장이 달라질 수 있어요. 내가 무엇이 ‘이미’ 있는지부터 점검해보세요.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-check" class="ins-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">가입 전 체크포인트</h2>
+                <p class="section-desc">‘많이’보다 ‘필요한 만큼’이 중요해요.</p>
+            </div>
+            <div class="checklist">
+                <label class="check"><input type="checkbox"> 이미 가입한 보험을 확인했다</label>
+                <label class="check"><input type="checkbox"> 중복 보장(특약)을 점검했다</label>
+                <label class="check"><input type="checkbox"> 보험료 부담 수준(월 고정비)을 계산했다</label>
+                <label class="check"><input type="checkbox"> 면책기간/갱신 여부를 확인했다</label>
+                <label class="check"><input type="checkbox"> 설명 없이 ‘묶음 가입’은 피한다</label>
+                <div class="checkbar"><span class="checkbar__fill" id="ins-check-fill" style="width:0%"></span></div>
+                <p class="checkscore" id="ins-check-score">체크 0/5</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-situations" class="ins-section ins-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">상황별 가이드</h2>
+            </div>
+            <div class="ins-grid">
+                <article class="ins-card"><h3>사회초년생</h3><p>고정비(보험료)가 과하지 않게, 기본부터 한 번에 점검하는 것이 좋아요.</p></article>
+                <article class="ins-card"><h3>자취 중인 청년</h3><p>갑작스런 의료 지출이 부담이 될 수 있어요. 비상금과 함께 ‘현금흐름’을 먼저 봐요.</p></article>
+                <article class="ins-card"><h3>운전하는 청년</h3><p>사고 처리 비용은 크고 갑작스러워요. 필요한 보장과 제외 항목부터 확인해요.</p></article>
+                <article class="ins-card"><h3>프리랜서/자영업</h3><p>소득 변동이 있을 수 있어요. 무리한 보험료보다 유지 가능한 구조가 우선이에요.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="ins-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">보험은 언제부터 준비하는 게 좋을까요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>정답은 없지만, ‘내가 감당 가능한 보험료’와 ‘이미 있는 보장’을 먼저 확인하면 불필요한 가입을 줄일 수 있어요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">사회초년생에게 꼭 필요한 보험이 있나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>필요 여부는 생활/건강/직업에 따라 달라요. ‘실비’처럼 자주 언급되는 개념도 보장 범위/제외를 꼭 확인해야 합니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">보험료가 너무 비싸면 어떻게 해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>특약을 줄이거나, 중복 보장을 정리하거나, ‘유지 가능한 수준’으로 구조를 다시 설계하는 것이 좋아요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">회사 보험이 있으면 개인 보험은 필요 없나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>회사 단체보험은 조건이 바뀔 수 있어요. ‘현재 보장’과 ‘공백’이 어디인지 점검하는 관점이 좋습니다.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="ins-modal" class="ins-modal" role="dialog" aria-modal="true" aria-labelledby="ins-modal-title">
+        <div class="ins-modal__box">
+            <button type="button" class="ins-modal__close" id="ins-modal-close" aria-label="닫기">×</button>
+            <h3 id="ins-modal-title" class="ins-modal__title"></h3>
+            <div id="ins-modal-body" class="ins-modal__body"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+</html>
+

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="중고차 구매 예산 계산기 — 차값뿐 아니라 세금·보험·유지비·할부 부담까지 함께 계산해 보세요.">
+    <meta property="og:title" content="중고차 구매 예산 계산기 | 청년지갑">
+    <title>중고차 구매 예산 계산기 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/usedcar.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/usedcar.js" defer></script>
+</head>
+<body class="page-usedcar">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="car-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 차량 예산 계산</p>
+            <h1 id="car-hero-title" class="sub-hero__title">중고차 구매 예산 계산기</h1>
+            <p class="sub-hero__desc">차값만 보지 말고 보험료, 세금, 유지비까지 함께 계산해<br>내 예산에 맞는 중고차 구매 계획을 세워보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-tool" class="btn primary">예산 계산하기</a>
+                <a href="#section-costs" class="btn secondary">꼭 보는 비용 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <main id="section-tool" class="car-main">
+        <div class="container">
+            <div class="car-layout">
+                <section class="car-card car-card--input" aria-labelledby="car-input-title">
+                    <div class="car-card__head">
+                        <h2 id="car-input-title" class="car-card__title">구매/유지 입력</h2>
+                        <p class="car-card__desc">계산 결과는 참고용 추정치입니다. 실제 세율/보험료/금리는 달라질 수 있어요.</p>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="field">
+                            <label class="field__label" for="car-price">차량 가격</label>
+                            <div class="field__row">
+                                <input id="car-price" class="field__input money" inputmode="numeric" value="12000000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="car-cash">보유 현금</label>
+                            <div class="field__row">
+                                <input id="car-cash" class="field__input money" inputmode="numeric" value="5000000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">할부 사용 여부</label>
+                        <div class="pill-row" role="group" aria-label="할부 사용 여부">
+                            <button type="button" class="pill is-active" data-install="yes">사용함</button>
+                            <button type="button" class="pill" data-install="no">사용 안함</button>
+                        </div>
+                    </div>
+
+                    <div class="grid-2" id="install-fields">
+                        <div class="field">
+                            <label class="field__label" for="car-months">할부 기간</label>
+                            <select id="car-months" class="field__select" aria-label="할부 기간">
+                                <option value="12">12개월</option>
+                                <option value="24">24개월</option>
+                                <option value="36" selected>36개월</option>
+                                <option value="48">48개월</option>
+                                <option value="60">60개월</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="car-rate">예상 금리</label>
+                            <div class="field__row">
+                                <input id="car-rate" class="field__input" type="number" min="0" max="20" step="0.1" value="6.5">
+                                <span class="field__unit">%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="field">
+                            <label class="field__label" for="car-ins-month">월 보험료(추정)</label>
+                            <div class="field__row">
+                                <input id="car-ins-month" class="field__input money" inputmode="numeric" value="90000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="car-fuel">월 주유비</label>
+                            <div class="field__row">
+                                <input id="car-fuel" class="field__input money" inputmode="numeric" value="180000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="car-parking">월 주차비</label>
+                            <div class="field__row">
+                                <input id="car-parking" class="field__input money" inputmode="numeric" value="60000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="car-maint">월 정비/소모품</label>
+                            <div class="field__row">
+                                <input id="car-maint" class="field__input money" inputmode="numeric" value="50000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="car-income">월 실수령액(선택)</label>
+                        <div class="field__row">
+                            <input id="car-income" class="field__input money" inputmode="numeric" value="0" placeholder="예: 2500000">
+                            <span class="field__unit">원</span>
+                        </div>
+                        <p class="field__note">입력하면 ‘월급 대비 차량비’ 배지를 더 정확히 보여드려요.</p>
+                    </div>
+
+                    <div class="actions">
+                        <button type="button" class="btn primary car-btn" id="btn-car">예산 계산하기</button>
+                        <p class="err" id="car-error" role="alert" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <aside class="car-card car-card--result" aria-labelledby="car-result-title">
+                    <div class="car-card__head">
+                        <h2 id="car-result-title" class="car-card__title">결과 요약</h2>
+                        <p class="car-card__desc">초기 비용과 월 부담을 한 번에 비교해보세요.</p>
+                    </div>
+
+                    <div class="badge" id="car-badge">-</div>
+
+                    <div class="kpis">
+                        <div class="kpi"><div class="kpi__label">초기 필요 비용(추정)</div><div class="kpi__value" id="car-upfront">-</div></div>
+                        <div class="kpi"><div class="kpi__label">월 고정 부담(추정)</div><div class="kpi__value" id="car-monthly">-</div></div>
+                        <div class="kpi"><div class="kpi__label">1년 총 유지비(추정)</div><div class="kpi__value" id="car-year">-</div></div>
+                        <div class="kpi"><div class="kpi__label">할부 월 납입(있을 때)</div><div class="kpi__value" id="car-install">-</div></div>
+                    </div>
+
+                    <div class="bars" id="car-bars"></div>
+                    <div class="note" id="car-note">결과가 여기에 표시됩니다.</div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <section id="section-costs" class="car-section car-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">중고차 살 때 꼭 보는 비용</h2>
+            </div>
+            <div class="car-grid">
+                <article class="car-info"><h3>취등록세</h3><p>차량 가격 외에 한 번에 들어갈 수 있어요. 지역/차종에 따라 달라질 수 있습니다.</p></article>
+                <article class="car-info"><h3>보험료</h3><p>나이/경력/차종에 따라 차이가 큽니다. 월 부담으로 환산해 봐요.</p></article>
+                <article class="car-info"><h3>정비·소모품</h3><p>타이어/오일/브레이크 등 ‘한 번에’ 나갈 수 있는 비용을 준비해요.</p></article>
+                <article class="car-info"><h3>주차·유류</h3><p>매달 나가는 고정 지출이에요. 예상보다 커지기 쉬운 항목입니다.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="car-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년 구매 체크리스트</h2>
+            </div>
+            <div class="car-grid">
+                <article class="car-info"><h3>예산 여유 확인</h3><p>차값보다 ‘월 부담’이 지속됩니다. 월급 대비 비중을 꼭 확인하세요.</p></article>
+                <article class="car-info"><h3>급하게 구매하지 않기</h3><p>유지비까지 포함해 비교하고 결정하면 후회가 줄어요.</p></article>
+                <article class="car-info"><h3>첫 차는 유지비가 핵심</h3><p>비싼 차보다 ‘내가 오래 유지할 수 있는 차’가 더 안전합니다.</p></article>
+                <article class="car-info"><h3>할부는 길수록 주의</h3><p>월 부담은 줄지만 총 비용이 늘 수 있어요. 금리와 기간을 함께 보세요.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="car-section car-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">차량 가격만 보면 안 되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>차량은 구매 후 유지비가 계속 발생해요. 보험료·유류비·정비비까지 함께 보는 것이 안전합니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">할부를 쓰면 어느 정도 부담이 커지나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>금리와 기간에 따라 총 이자가 달라져요. 월 부담과 총 비용을 같이 비교해보세요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">보험료는 어떻게 반영하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>월 보험료(또는 연 보험료를 월로 환산한 값)를 넣고 월 고정 부담으로 계산합니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">첫 차는 얼마대가 적당한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>가격보다 ‘월 부담’과 ‘유지 가능성’이 더 중요해요. 월급 대비 차량비 비중이 과하지 않은지 확인해 보세요.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>
+

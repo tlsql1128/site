@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년 전월세 계산기. 보증금 예산으로 전세·월세 가능 여부, 월 주거비, 기간별 총지출을 한 번에 비교하세요.">
+    <meta name="keywords" content="청년, 전세, 월세, 계산기, 주거비, 전월세 비교">
+    <meta property="og:title" content="청년 전월세 계산기 | 청년지갑">
+    <title>청년 전월세 계산기 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/rent.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/rent.js" defer></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <!-- HERO -->
+    <section id="section-hero" class="sub-hero" aria-labelledby="rent-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 주거 의사결정</p>
+            <h1 id="rent-hero-title" class="sub-hero__title">청년 전월세 계산기</h1>
+            <p class="sub-hero__desc">내 예산으로 전세가 유리할까? 월세가 유리할까?<br>보증금, 월세, 관리비까지 한 번에 비교해 보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-calculator" class="btn primary">계산 시작하기</a>
+                <a href="#section-how" class="btn secondary">이용 방법 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 메인 계산기 -->
+    <section id="section-calculator" class="rent-main">
+        <div class="container">
+            <div class="rent-calc-layout">
+                <!-- 입력 -->
+                <div class="rent-card rent-card--input">
+                    <div class="rent-card__head">
+                        <h2 class="rent-card__title">입력 정보</h2>
+                        <p class="rent-card__desc">값을 입력한 뒤 <strong>계산하기</strong>를 눌러 주세요.</p>
+                    </div>
+
+                    <div class="rent-field">
+                        <label class="rent-label" for="budget-input">현재 보유 예산 (보증금 가능 금액)</label>
+                        <div class="rent-budget-row">
+                            <input type="text" inputmode="numeric" id="budget-input" class="rent-input rent-input--money" value="50000000" autocomplete="off" aria-describedby="budget-hint">
+                            <span class="rent-unit">원</span>
+                        </div>
+                        <input type="range" id="budget-slider" class="rent-slider" min="10000000" max="100000000" value="50000000" step="1000000" aria-label="보증금 예산 슬라이더">
+                        <div class="rent-slider-ticks"><span>1천만 원</span><span>1억 원</span></div>
+                        <p id="budget-hint" class="rent-hint">1천만 원 ~ 1억 원 범위(천만 원 단위)</p>
+                    </div>
+
+                    <div class="rent-field">
+                        <span class="rent-label">희망 지역</span>
+                        <div class="rent-chips" role="group" aria-label="희망 지역">
+                            <label class="rent-chip"><input type="radio" name="region" value="seoul" checked> 서울</label>
+                            <label class="rent-chip"><input type="radio" name="region" value="gyeonggi"> 경기</label>
+                            <label class="rent-chip"><input type="radio" name="region" value="incheon"> 인천</label>
+                            <label class="rent-chip"><input type="radio" name="region" value="metro"> 지방 광역시</label>
+                            <label class="rent-chip"><input type="radio" name="region" value="other"> 기타</label>
+                        </div>
+                    </div>
+
+                    <div class="rent-field">
+                        <label class="rent-label" for="income-input">월 소득</label>
+                        <div class="rent-budget-row">
+                            <input type="text" inputmode="numeric" id="income-input" class="rent-input rent-input--money" value="3500000" autocomplete="off">
+                            <span class="rent-unit">원</span>
+                        </div>
+                    </div>
+
+                    <div class="rent-field">
+                        <span class="rent-label">희망 월세 예산</span>
+                        <div class="rent-preset-row">
+                            <button type="button" class="rent-preset" data-won="300000">30만 원</button>
+                            <button type="button" class="rent-preset is-active" data-won="500000">50만 원</button>
+                            <button type="button" class="rent-preset" data-won="700000">70만 원</button>
+                        </div>
+                        <div class="rent-budget-row">
+                            <input type="text" inputmode="numeric" id="monthly-rent-input" class="rent-input rent-input--money" value="500000" autocomplete="off">
+                            <span class="rent-unit">원</span>
+                        </div>
+                    </div>
+
+                    <div class="rent-field">
+                        <label class="rent-label" for="maint-input">관리비 예상 (월)</label>
+                        <div class="rent-budget-row">
+                            <input type="text" inputmode="numeric" id="maint-input" class="rent-input rent-input--money" value="100000" autocomplete="off">
+                            <span class="rent-unit">원</span>
+                        </div>
+                    </div>
+
+                    <div class="rent-field">
+                        <span class="rent-label">거주 예정 기간</span>
+                        <div class="rent-period" role="group">
+                            <label class="rent-period-btn"><input type="radio" name="stay-years" value="1"> 1년</label>
+                            <label class="rent-period-btn"><input type="radio" name="stay-years" value="2"> 2년</label>
+                            <label class="rent-period-btn"><input type="radio" name="stay-years" value="4" checked> 4년</label>
+                        </div>
+                    </div>
+
+                    <div class="rent-field">
+                        <span class="rent-label">대출 활용 여부</span>
+                        <select id="loan-type" class="rent-select">
+                            <option value="none">사용 안 함</option>
+                            <option value="youth">청년·버팀목 전세대출 등</option>
+                            <option value="general">일반 주택담보·신용 대출</option>
+                        </select>
+                    </div>
+
+                    <div class="rent-field rent-field--loan disabled" id="loan-rate-wrap">
+                        <label class="rent-label" for="loan-rate-input">대출 금리 (%)</label>
+                        <input type="number" id="loan-rate-input" class="rent-input" min="0" max="20" step="0.1" value="4.5" disabled>
+                    </div>
+
+                    <p class="rent-error" id="rent-error" role="alert"></p>
+                    <button type="button" class="rent-btn rent-btn--primary rent-btn--block" id="btn-calculate">계산하기</button>
+                </div>
+
+                <!-- 결과 -->
+                <div class="rent-card rent-card--result" id="result-panel">
+                    <div class="rent-card__head">
+                        <h2 class="rent-card__title">분석 결과</h2>
+                        <p class="rent-card__desc">참고용 시뮬레이션이며, 실제 계약 조건과 다를 수 있습니다.</p>
+                    </div>
+
+                    <div class="rent-result-block">
+                        <h3 class="rent-result__label">전세 가능 수준 (예산 기준)</h3>
+                        <p class="rent-result__text" id="result-jeonse-level">계산하기를 눌러 주세요.</p>
+                    </div>
+
+                    <div class="rent-result-block">
+                        <h3 class="rent-result__label">월세 선택 시 월 주거비</h3>
+                        <p class="rent-result__big"><span id="result-monthly-total" data-target="0">0</span><span class="rent-won">원</span></p>
+                        <p class="rent-result__sub">월세 + 관리비 합계</p>
+                    </div>
+
+                    <div class="rent-result-block">
+                        <h3 class="rent-result__label">거주 기간 총 지출 (월세 기준)</h3>
+                        <ul class="rent-total-list">
+                            <li><span>1년</span><strong><span id="total-rent-1y" data-target="0">0</span> 원</strong></li>
+                            <li><span>2년</span><strong><span id="total-rent-2y" data-target="0">0</span> 원</strong></li>
+                            <li><span>4년</span><strong><span id="total-rent-4y" data-target="0">0</span> 원</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="rent-result-block">
+                        <h3 class="rent-result__label">전세 측면 예상 비용 (기회비용·대출이자 포함, 참고)</h3>
+                        <ul class="rent-total-list">
+                            <li><span>1년</span><strong><span id="total-jeonse-1y" data-target="0">0</span> 원</strong></li>
+                            <li><span>2년</span><strong><span id="total-jeonse-2y" data-target="0">0</span> 원</strong></li>
+                            <li><span>4년</span><strong><span id="total-jeonse-4y" data-target="0">0</span> 원</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="rent-recommend" id="result-recommend">
+                        <p class="rent-recommend__title">추천 요약</p>
+                        <p class="rent-recommend__body" id="result-recommend-text">입력 후 계산하면 전세·월세 중 유리한 방향을 안내합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 비교 그래프 -->
+            <div class="rent-chart-card rent-reveal" id="section-chart">
+                <h3 class="rent-chart__title">기간별 총비용 비교 (4년 기준 막대)</h3>
+                <p class="rent-chart__desc">월세 총액 vs 전세 관련 예상 비용(기회비용·이자). 단위: 만 원.</p>
+                <div class="rent-bars" id="rent-bars">
+                    <div class="rent-bar-wrap">
+                        <div class="rent-bar" id="bar-rent" style="--h:0%"><span class="rent-bar__val" id="bar-rent-label">0</span></div>
+                        <span class="rent-bar__name">월세 총비용</span>
+                    </div>
+                    <div class="rent-bar-wrap">
+                        <div class="rent-bar rent-bar--jeonse" id="bar-jeonse" style="--h:0%"><span class="rent-bar__val" id="bar-jeonse-label">0</span></div>
+                        <span class="rent-bar__name">전세 관련 비용</span>
+                    </div>
+                    <div class="rent-bar-wrap">
+                        <div class="rent-bar rent-bar--loan" id="bar-loan" style="--h:0%"><span class="rent-bar__val" id="bar-loan-label">0</span></div>
+                        <span class="rent-bar__name">대출이자(추가)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 이용 방법 -->
+    <section id="section-how" class="rent-info rent-info--muted">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">이용 방법</h2>
+                <p class="section-desc">예산·지역·월세를 입력하면 전세 가능 수준과 월·기간별 부담을 비교합니다.</p>
+            </div>
+            <ol class="rent-how-list">
+                <li>보증금으로 쓸 수 있는 금액과 희망 지역을 선택합니다.</li>
+                <li>월세·관리비·거주 기간을 맞춥니다.</li>
+                <li>대출을 쓸 계획이면 유형과 금리를 입력합니다.</li>
+                <li>계산하기를 눌러 결과와 추천 문구를 확인합니다.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 청년 전세대출 팁 -->
+    <section id="section-loan-tips" class="rent-info">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년·주거 대출 알아보기</h2>
+                <p class="section-desc">실제 금리·한도는 금융기관 및 정책 공고를 확인하세요.</p>
+            </div>
+            <div class="rent-triple">
+                <article class="rent-mini-card rent-reveal">
+                    <h3 class="rent-mini-card__title">버팀목 전세자금대출</h3>
+                    <p class="rent-mini-card__text">무주택 세대 등 요건 충족 시 전세 자금을 저금리로 지원하는 제도가 있습니다.</p>
+                </article>
+                <article class="rent-mini-card rent-reveal">
+                    <h3 class="rent-mini-card__title">중기청·청년 특화</h3>
+                    <p class="rent-mini-card__text">중소기업 취업 청년 등 대상으로 주거 자금을 지원하는 상품이 별도로 운영될 수 있습니다.</p>
+                </article>
+                <article class="rent-mini-card rent-reveal">
+                    <h3 class="rent-mini-card__title">청년 전용 대출</h3>
+                    <p class="rent-mini-card__text">은행별 청년 우대 금리·한도가 상이하니 비교 후 신청하는 것이 좋습니다.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 지역별 평균 월세 안내 -->
+    <section id="section-region" class="rent-info rent-info--muted">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">지역별 평균 월세 수준 (참고)</h2>
+                <p class="section-desc">실제 시세는 동·면적·호실에 따라 크게 달라집니다.</p>
+            </div>
+            <div class="rent-triple">
+                <article class="rent-region-card rent-reveal">
+                    <h3 class="rent-region-card__title">서울</h3>
+                    <p class="rent-region-card__stat">평균 월세 부담 <strong>상대적으로 높음</strong></p>
+                    <p class="rent-region-card__text">소형 평수·합리적 예산 설계가 중요합니다.</p>
+                </article>
+                <article class="rent-region-card rent-reveal">
+                    <h3 class="rent-region-card__title">경기·수도권</h3>
+                    <p class="rent-region-card__stat">서울 대비 <strong>선택지 다양</strong></p>
+                    <p class="rent-region-card__text">출퇴근 거리와 월세 균형을 맞추는 경우가 많습니다.</p>
+                </article>
+                <article class="rent-region-card rent-reveal">
+                    <h3 class="rent-region-card__title">지방</h3>
+                    <p class="rent-region-card__stat">동일 예산 시 <strong>주거비 여유</strong></p>
+                    <p class="rent-region-card__text">일자리·생활 인프라와 함께 검토하는 것이 좋습니다.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 추천 대상 -->
+    <section id="section-audience" class="rent-info">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">이런 분께 추천합니다</h2>
+            </div>
+            <ul class="rent-audience">
+                <li class="rent-audience__item rent-reveal">자취를 준비하는 사회초년생</li>
+                <li class="rent-audience__item rent-reveal">독립을 앞둔 청년</li>
+                <li class="rent-audience__item rent-reveal">전세와 월세를 고민 중인 직장인</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="section-faq" class="rent-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">전세가 무조건 유리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>아닙니다. 보증금 물림, 대출 이자, 이사 비용 등을 함께 봐야 합니다. 본 도구는 입력값 기준 참고 비교입니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">월세는 얼마나 부담되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>월세와 관리비를 합친 금액이 월 소득에서 차지하는 비율이 중요합니다. 통상 30% 미만을 권장하는 경우가 많습니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">청년 대출을 같이 쓰면 유리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>금리·한도·상환 방식에 따라 달라집니다. 정책자금은 조건이 좋은 경우가 많으나, 중도 상환 수수료 등을 확인하세요.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">관리비도 포함해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>실제 주거비는 관리비·공과금·인터넷 등이 추가됩니다. 여기서는 관리비 입력값을 월 부담에 포함합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 유의사항 -->
+    <section id="section-notice" class="rent-notice">
+        <div class="container">
+            <p class="rent-notice__text">본 페이지의 계산 결과는 참고용 시뮬레이션이며, 실제 전세·월세 계약, 대출 조건, 세법과 다를 수 있습니다. 중요한 결정은 전문가 상담과 최신 고시를 확인하시기 바랍니다.</p>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

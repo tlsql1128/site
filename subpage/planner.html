@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="월급 관리 플래너 — 월 실수령액을 기준으로 저축·생활비·고정비를 균형 있게 배분해보세요.">
+    <meta property="og:title" content="월급 관리 플래너 | 청년지갑">
+    <title>월급 관리 플래너 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/planner.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/planner.js" defer></script>
+</head>
+<body class="page-planner">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="planner-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 월급 관리</p>
+            <h1 id="planner-hero-title" class="sub-hero__title">월급 관리 플래너</h1>
+            <p class="sub-hero__desc">월 실수령액을 기준으로<br>저축, 생활비, 고정비를 균형 있게 나눠보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-tool" class="btn primary">플래너 시작하기</a>
+                <a href="#section-how" class="btn secondary">예산 나누는 법 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <main id="section-tool" class="planner-main">
+        <div class="container">
+            <div class="planner-layout">
+                <section class="planner-card planner-card--input" aria-labelledby="planner-input-title">
+                    <div class="planner-card__head">
+                        <h2 id="planner-input-title" class="planner-card__title">월급 입력 & 선택</h2>
+                        <p class="planner-card__desc">추천 배분은 참고용이에요. 내 상황에 맞게 조정해 보세요.</p>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="pl-income">월 실수령액</label>
+                        <div class="field__row">
+                            <input id="pl-income" class="field__input money" inputmode="numeric" autocomplete="off" placeholder="2500000" value="2500000">
+                            <span class="field__unit">원</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="pl-housing">주거 형태</label>
+                        <select id="pl-housing" class="field__select" aria-label="주거 형태">
+                            <option value="family">부모님과 거주</option>
+                            <option value="rent" selected>월세 거주</option>
+                            <option value="jeonse">전세 거주</option>
+                            <option value="dorm">기숙사/사택</option>
+                        </select>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="field">
+                            <label class="field__label" for="pl-phone">통신비</label>
+                            <div class="field__row">
+                                <input id="pl-phone" class="field__input money" inputmode="numeric" value="60000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="pl-transport">교통비</label>
+                            <div class="field__row">
+                                <input id="pl-transport" class="field__input money" inputmode="numeric" value="80000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="pl-subscription">구독서비스비</label>
+                            <div class="field__row">
+                                <input id="pl-subscription" class="field__input money" inputmode="numeric" value="30000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="field__label" for="pl-insurance">보험료</label>
+                            <div class="field__row">
+                                <input id="pl-insurance" class="field__input money" inputmode="numeric" value="70000">
+                                <span class="field__unit">원</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="pl-fixed-etc">기타 고정비(선택)</label>
+                        <div class="field__row">
+                            <input id="pl-fixed-etc" class="field__input money" inputmode="numeric" value="0">
+                            <span class="field__unit">원</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="pl-save-rate">저축 목표 비율</label>
+                        <div class="pill-row" role="group" aria-label="저축 비율 선택">
+                            <button type="button" class="pill" data-rate="10">10%</button>
+                            <button type="button" class="pill is-active" data-rate="20">20%</button>
+                            <button type="button" class="pill" data-rate="30">30%</button>
+                            <button type="button" class="pill" data-rate="custom">직접</button>
+                        </div>
+                        <div class="field__row field__row--tight">
+                            <input id="pl-save-rate" class="field__input" type="number" min="0" max="60" step="1" value="20" inputmode="numeric" aria-label="저축 비율 직접 입력(%)">
+                            <span class="field__unit">%</span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label">라이프스타일</label>
+                        <div class="pill-row" role="group" aria-label="라이프스타일">
+                            <button type="button" class="pill" data-style="save">절약형</button>
+                            <button type="button" class="pill is-active" data-style="balanced">균형형</button>
+                            <button type="button" class="pill" data-style="relaxed">여유형</button>
+                        </div>
+                    </div>
+
+                    <div class="planner-actions">
+                        <button type="button" class="btn primary planner-btn" id="btn-planner">예산 배분하기</button>
+                        <p class="planner-error" id="planner-error" role="alert" aria-live="polite"></p>
+                    </div>
+                </section>
+
+                <aside class="planner-card planner-card--result" aria-labelledby="planner-result-title">
+                    <div class="planner-card__head">
+                        <h2 id="planner-result-title" class="planner-card__title">내 월급 분배표</h2>
+                        <p class="planner-card__desc">분배 비율과 금액을 한눈에 확인하세요.</p>
+                    </div>
+
+                    <div class="donut-wrap">
+                        <div class="donut" id="pl-donut" aria-label="예산 비율 도넛차트"></div>
+                        <div class="donut-center">
+                            <div class="donut-center__label">월 실수령</div>
+                            <div class="donut-center__value" id="pl-income-out">-</div>
+                        </div>
+                    </div>
+
+                    <div class="bars" id="pl-bars" aria-label="항목별 예산">
+                        <!-- JS render -->
+                    </div>
+
+                    <div class="summary" id="pl-summary">결과가 여기에 표시됩니다.</div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <section id="section-how" class="planner-section planner-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">추천 예산 루틴 3종</h2>
+                <p class="section-desc">상황에 맞는 베이스를 고르고, 내 기준으로 조정해보세요.</p>
+            </div>
+            <div class="routine-grid">
+                <article class="routine-card"><h3>사회초년생형</h3><p>저축 20%부터 시작하고, 고정비를 먼저 잠금 처리합니다.</p></article>
+                <article class="routine-card"><h3>자취형</h3><p>주거비 비중을 먼저 정하고, 생활비 한도를 통장으로 관리합니다.</p></article>
+                <article class="routine-card"><h3>저축집중형</h3><p>저축을 30% 가까이 두고, 구독·변동비를 슬림하게 운영합니다.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="planner-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">월급 관리 팁</h2>
+            </div>
+            <div class="tip-grid">
+                <article class="tip-card"><h3>통장 2~3개로 분리</h3><p>생활비/저축/비상금으로 나누면 ‘남은 돈’이 눈에 보여요.</p></article>
+                <article class="tip-card"><h3>자동이체로 먼저 저축</h3><p>급여일 다음 날 자동저축을 걸면 계획이 흔들리지 않아요.</p></article>
+                <article class="tip-card"><h3>구독 정리</h3><p>작은 구독이 쌓이면 고정비가 됩니다. 월 1회 점검해보세요.</p></article>
+                <article class="tip-card"><h3>비상금 우선 확보</h3><p>예상치 못한 지출이 생겨도 계획을 지킬 수 있어요.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="planner-section planner-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">저축은 몇 퍼센트가 적당한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>처음에는 10~20%로 시작하고, 고정비를 줄이면서 점진적으로 올리는 방식이 부담이 적어요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">비상금은 꼭 필요한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>예상치 못한 지출이 생길 때 계획이 무너지는 것을 막아줘요. 최소 1~3개월 생활비(또는 100만 원)부터 추천합니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">월세 비중이 너무 높으면 어떻게 해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>고정비(통신·구독·보험)부터 줄이고, 생활비 한도를 통장/현금으로 제한해보세요. 주거 선택을 재검토하는 것도 방법입니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">적금과 비상금을 같이 운영해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>가능하면 함께 운영이 좋아요. 비상금이 없으면 급한 상황에 적금을 깨기 쉬워집니다.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>
+

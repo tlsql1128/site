@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년지갑 청년 정부지원금 찾기. 나이·지역·소득·상황을 입력하면 맞춤 청년 혜택을 추천합니다.">
+    <meta property="og:title" content="청년 정부지원금 찾기 | 청년지갑">
+    <title>청년 정부지원금 찾기 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/support.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/support.js" defer></script>
+</head>
+<body class="page-support">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="support-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 맞춤 추천</p>
+            <h1 id="support-hero-title" class="sub-hero__title">청년 정부지원금 찾기</h1>
+            <p class="sub-hero__desc">나이, 지역, 소득, 현재 상황만 입력하면<br>나에게 맞는 청년 혜택을 빠르게 추천해 드립니다.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-calculator" class="btn primary">지원금 찾기 시작하기</a>
+                <a href="#section-about" class="btn secondary">조건 알아보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-calculator" class="support-main">
+        <div class="container">
+            <p class="support-note" role="note">추천 결과는 참고용이며, 실제 신청 가능 여부는 정부·지자체 공식 공고를 확인해 주세요.</p>
+
+            <div class="support-layout">
+                <div class="support-card support-card--input">
+                    <div class="support-card__head">
+                        <h2 class="support-card__title">내 조건 입력</h2>
+                        <p class="support-card__desc">정확할수록 추천이 유리해집니다.</p>
+                    </div>
+
+                    <div class="support-field">
+                        <label class="support-label" for="support-age">나이</label>
+                        <div class="support-row">
+                            <input type="number" id="support-age" class="support-input" min="15" max="45" value="27" inputmode="numeric" aria-describedby="support-age-hint">
+                            <span class="support-unit">세</span>
+                        </div>
+                        <p id="support-age-hint" class="support-hint">만 나이 기준, 19~39세 청년 혜택을 중심으로 추천합니다.</p>
+                    </div>
+
+                    <div class="support-field">
+                        <label class="support-label" for="support-region">거주 지역</label>
+                        <select id="support-region" class="support-select" aria-label="거주 지역 선택">
+                            <option value="seoul">서울</option>
+                            <option value="gyeonggi">경기</option>
+                            <option value="incheon">인천</option>
+                            <option value="busan">부산</option>
+                            <option value="daegu">대구</option>
+                            <option value="gwangju">광주</option>
+                            <option value="daejeon">대전</option>
+                            <option value="ulsan">울산</option>
+                            <option value="sejong">세종</option>
+                            <option value="gangwon">강원</option>
+                            <option value="chungbuk">충북</option>
+                            <option value="chungnam">충남</option>
+                            <option value="jeonbuk">전북</option>
+                            <option value="jeonnam">전남</option>
+                            <option value="gyeongbuk">경북</option>
+                            <option value="gyeongnam">경남</option>
+                            <option value="jeju">제주</option>
+                        </select>
+                    </div>
+
+                    <div class="support-field">
+                        <span class="support-label" id="support-income-label">소득 수준 (월)</span>
+                        <div class="support-chip-group" role="group" aria-labelledby="support-income-label">
+                            <button type="button" class="support-chip support-chip--income" data-income="none">무소득</button>
+                            <button type="button" class="support-chip support-chip--income" data-income="lt100">100만원 이하</button>
+                            <button type="button" class="support-chip support-chip--income is-active" data-income="100-200">100~200만원</button>
+                            <button type="button" class="support-chip support-chip--income" data-income="200-300">200~300만원</button>
+                            <button type="button" class="support-chip support-chip--income" data-income="gt300">300만원 이상</button>
+                        </div>
+                    </div>
+
+                    <div class="support-field">
+                        <span class="support-label" id="support-status-label">현재 상태</span>
+                        <div class="support-chip-group support-chip-group--2" role="group" aria-labelledby="support-status-label">
+                            <button type="button" class="support-chip support-chip--status is-active" data-status="employee">직장인</button>
+                            <button type="button" class="support-chip support-chip--status" data-status="seeker">취준생</button>
+                            <button type="button" class="support-chip support-chip--status" data-status="biz">자영업</button>
+                            <button type="button" class="support-chip support-chip--status" data-status="freelance">프리랜서</button>
+                        </div>
+                    </div>
+
+                    <div class="support-field">
+                        <span class="support-label" id="support-housing-label">주거 상태 <span class="support-label-opt">(선택)</span></span>
+                        <div class="support-chip-group support-chip-group--wrap" role="group" aria-labelledby="support-housing-label">
+                            <button type="button" class="support-chip support-chip--housing" data-housing="parent">부모님과 거주</button>
+                            <button type="button" class="support-chip support-chip--housing" data-housing="alone">자취 중</button>
+                            <button type="button" class="support-chip support-chip--housing" data-housing="jeonse">전세 거주</button>
+                            <button type="button" class="support-chip support-chip--housing" data-housing="wolse">월세 거주</button>
+                        </div>
+                    </div>
+
+                    <p class="support-error" id="support-error" role="alert"></p>
+                    <button type="button" class="support-btn support-btn--primary support-btn--block" id="btn-support-run">맞춤 혜택 찾기</button>
+                </div>
+
+                <div class="support-card support-card--result" id="support-result-panel">
+                    <div class="support-card__head">
+                        <h2 class="support-card__title">추천 지원 혜택</h2>
+                        <p class="support-card__desc">입력 후 <strong>맞춤 혜택 찾기</strong>를 눌러 주세요.</p>
+                    </div>
+
+                    <div class="support-gauge" id="support-gauge" aria-live="polite">
+                        <p class="support-gauge__label">현재 조건 기준 혜택 활용도</p>
+                        <div class="support-gauge__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="support-gauge-bar">
+                            <span class="support-gauge__fill" id="support-gauge-fill" style="width:0%"></span>
+                        </div>
+                        <p class="support-gauge__value"><span id="support-gauge-pct">0</span>%</p>
+                        <p class="support-gauge__sub" id="support-gauge-sub">추천 가능한 제도 <span id="support-gauge-count">0</span>개 / 4개</p>
+                    </div>
+
+                    <div class="support-results" id="support-results"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-tips" class="support-tips">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">맞춤 금융 꿀팁</h2>
+                <p class="section-desc">입력 조합에 따라 달라지는 짧은 실천 팁입니다.</p>
+            </div>
+            <div class="support-tips__box" id="support-tips-content">
+                <p class="support-tips__placeholder">조건을 입력하고 추천을 실행하면 이곳에 맞춤 팁이 표시됩니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-about" class="support-extra">
+        <div class="container">
+            <div class="support-extra__grid">
+                <div class="support-extra-card support-reveal">
+                    <h3 class="support-extra-card__title">많이 찾는 지원 TOP 4</h3>
+                    <ol class="support-extra-card__ol">
+                        <li>청년도약계좌</li>
+                        <li>청년월세지원</li>
+                        <li>청년전세대출</li>
+                        <li>국민취업지원제도</li>
+                    </ol>
+                </div>
+                <div class="support-extra-card support-reveal">
+                    <h3 class="support-extra-card__title">이런 분께 추천합니다</h3>
+                    <ul class="support-extra-card__ul">
+                        <li>사회초년생</li>
+                        <li>독립 준비 중인 청년</li>
+                        <li>취업 준비생</li>
+                        <li>목돈 마련이 필요한 사용자</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="support-disclaimer support-reveal" role="note">실제 지원 대상 여부는 정부·지자체 공식 공고 기준에 따라 달라질 수 있습니다.</p>
+        </div>
+    </section>
+
+    <section id="section-faq" class="support-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">추천 결과는 확정 대상자인가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>아닙니다. 참고용 추천이며, 실제 자격·소득·중복 수급 여부는 공고 및 심사 결과에 따릅니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">지역마다 혜택이 다른가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>네. 지자체·부처 사업에 따라 대상·금액·신청 기간이 다를 수 있습니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">중복 신청이 가능한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>사업마다 다릅니다. 중복·택일 여부는 각 공고의 중복 수급 규정을 확인해 주세요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">직장인도 받을 수 있나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>소득·재직 형태에 따라 가능한 제도가 달라집니다. 일부는 소득 상한이 있습니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">신청 링크는 어디서 확인하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>정부24·복지로·지자체 청년 포털 등 공식 사이트에서 최신 공고를 확인할 수 있습니다. 청년지갑은 링크 대행을 하지 않습니다.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

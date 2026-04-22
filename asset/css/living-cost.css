@@ -1,0 +1,128 @@
+/* 자취 생활비 계산기 — living-cost.html */
+
+.page-living-cost [id^="section-"] { scroll-margin-top: 96px; }
+.lc-main { padding: 44px 0 70px; background: #f1f5f9; }
+
+.lc-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 22px;
+    max-width: 1120px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.lc-card {
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(226,232,240,0.95);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(15,23,42,0.06);
+    padding: 26px 22px 28px;
+}
+
+.lc-card__head { border-bottom: 1px solid #eef2f7; padding-bottom: 16px; margin-bottom: 16px; }
+.lc-card__title { margin: 0 0 6px; font-size: 1.15rem; font-weight: 900; color: #111827; }
+.lc-card__desc { margin: 0; font-size: 13px; color: #64748b; line-height: 1.55; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { margin-bottom: 14px; }
+.field__label { display:block; font-size:13px; font-weight:900; color:#334155; margin:0 0 8px; }
+.field__row { display:flex; gap:10px; align-items:center; }
+.field__input,.field__select {
+    width:100%; min-width:0;
+    border:1px solid #dbe3ef; background:#fff;
+    border-radius:14px; padding:12px 14px;
+    font-size:15px; font-weight:700;
+    outline:none;
+    transition:border-color .18s ease, box-shadow .18s ease;
+}
+.field__select { font-weight: 800; color:#334155; }
+.field__input:focus,.field__select:focus { border-color:#6366f1; box-shadow:0 0 0 3px rgba(99,102,241,.12); }
+.field__unit { flex-shrink:0; font-weight:900; color:#64748b; }
+
+.actions { margin-top: 14px; display:grid; gap:10px; }
+.lc-btn { width:100%; border-radius:16px; min-height:52px; font-weight:900; }
+.err { margin:0; font-size:12px; color:#ef4444; min-height:1.2em; }
+
+.badge {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    margin-bottom: 14px;
+}
+.badge.badge--ok { background:#ecfeff; border-color:#99f6e4; color:#0f766e; }
+.badge.badge--warn { background:#fff7ed; border-color:#fed7aa; color:#9a3412; }
+.badge.badge--bad { background:#fff1f2; border-color:#fecdd3; color:#9f1239; }
+
+.kpis { display:grid; gap:12px; }
+.kpi { border:1px solid #e2e8f0; border-radius:18px; padding:14px 14px; background: linear-gradient(180deg, #fff, #fafbff); }
+.kpi__label { font-size:12px; font-weight:900; color:#64748b; margin-bottom:6px; }
+.kpi__value { font-size:18px; font-weight:900; color:#312e81; }
+
+.bars { margin-top:14px; display:grid; gap:10px; }
+.bar { border:1px solid #e2e8f0; border-radius:16px; padding:12px 12px; background:#fff; }
+.bar__top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px; }
+.bar__name { font-size:12px; font-weight:900; color:#334155; }
+.bar__val { font-size:12px; font-weight:900; color:#4338ca; }
+.bar__track { height:10px; background:#e2e8f0; border-radius:999px; overflow:hidden; }
+.bar__fill { display:block; height:100%; width:0%; border-radius:999px; transition:width .55s ease; }
+
+.note {
+    margin-top: 14px;
+    padding: 14px 14px;
+    border-radius: 18px;
+    border: 1px dashed #c7d2fe;
+    background: rgba(238, 242, 255, 0.6);
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 800;
+}
+
+.lc-section { padding: 60px 0 70px; background: #f1f5f9; }
+.lc-section--white { background:#fff; }
+.lc-grid {
+    display:grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap:16px;
+    max-width:1120px;
+    margin:0 auto;
+}
+.lc-info {
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:18px 16px;
+    box-shadow:0 6px 22px rgba(15,23,42,0.05);
+    height:100%;
+}
+.lc-info h3 { margin:0 0 8px; font-size:15px; font-weight:900; color:#1e293b; }
+.lc-info p { margin:0; font-size:13px; color:#64748b; line-height:1.6; }
+
+.region-guide {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 18px 16px;
+    border-radius: 20px;
+    border: 1px dashed #c7d2fe;
+    background: rgba(238, 242, 255, 0.55);
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 800;
+}
+
+@media (max-width:1040px){
+    .lc-layout { grid-template-columns: 1fr; }
+    .lc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width:640px){
+    .grid-2 { grid-template-columns: 1fr; }
+    .lc-grid { grid-template-columns: 1fr; }
+}
+

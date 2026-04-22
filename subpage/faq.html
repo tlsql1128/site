@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년지갑 FAQ — 미래적금·전월세·대출·연봉 계산기와 서비스 이용에 관한 자주 묻는 질문.">
+    <meta name="keywords" content="청년지갑, FAQ, 미래적금, 전월세, 대출, 연봉">
+    <meta property="og:title" content="자주 묻는 질문 | 청년지갑">
+    <meta property="og:description" content="청년지갑 서비스 이용 전 많이 궁금해하시는 내용을 모았습니다.">
+    <title>자주 묻는 질문 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/faq.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/faq.js" defer></script>
+</head>
+<body class="page-faq">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="faq-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 도움말</p>
+            <h1 id="faq-hero-title" class="sub-hero__title">자주 묻는 질문</h1>
+            <p class="sub-hero__desc">청년지갑 서비스 이용 전 많이 궁금해하시는 내용을 모았습니다.</p>
+            <div class="sub-hero__search">
+                <label class="visually-hidden" for="faq-search-input">FAQ 검색</label>
+                <div class="sub-hero__searchbox">
+                    <span class="sub-hero__searchicon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </span>
+                    <input type="search" id="faq-search-input" class="sub-hero__searchinput" placeholder="궁금한 내용을 검색해보세요" autocomplete="off" maxlength="80" aria-label="FAQ 검색">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-main" id="faq-main">
+        <div class="container">
+            <div class="faq-tabs" role="tablist" aria-label="FAQ 카테고리">
+                <button type="button" class="faq-tab is-active" role="tab" aria-selected="true" data-cat="all">전체</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="savings">미래적금</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="rent">전월세</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="loan">대출</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="salary">연봉</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="support">정부지원금</button>
+                <button type="button" class="faq-tab" role="tab" aria-selected="false" data-cat="site">사이트 이용</button>
+            </div>
+
+            <p class="faq-empty" id="faq-empty" role="status" hidden>검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</p>
+
+            <div class="faq-list" id="faq-list">
+                <!-- 미래적금 -->
+                <article class="faq-item" data-category="savings" id="faq-item-save">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-save" id="faq-btn-save">
+                        <span class="faq-trigger__cat">미래적금</span>
+                        <span class="faq-trigger__q">Q. 예상 수령액은 실제와 동일한가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-save" role="region" aria-labelledby="faq-btn-save" hidden>
+                        <p>아니요. 본 사이트의 청년미래적금 계산기는 <strong>참고용 시뮬레이션</strong>입니다. 실제 수령액은 가입 금융기관의 금리, 정부 지원금 고시, 세법 등에 따라 달라질 수 있습니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="savings">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-gov" id="faq-btn-gov">
+                        <span class="faq-trigger__cat">미래적금</span>
+                        <span class="faq-trigger__q">Q. 정부 지원금은 확정 금액인가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-gov" role="region" aria-labelledby="faq-btn-gov" hidden>
+                        <p>아닙니다. 정부 지원 비율·한도는 <strong>시행 시점의 공고</strong>를 따르며, 가입 유형(일반·우대)에 따라 달라질 수 있습니다. 계산 결과는 이해를 돕기 위한 예시입니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="savings">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-rate" id="faq-btn-rate">
+                        <span class="faq-trigger__cat">미래적금</span>
+                        <span class="faq-trigger__q">Q. 이자율은 어떤 기준으로 계산되나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-rate" role="region" aria-labelledby="faq-btn-rate" hidden>
+                        <p>입력하신 <strong>적용 금리</strong>를 바탕으로 단순 이자 모델을 적용합니다. 실제 상품은 복리·일할 계산 등 조건이 다를 수 있습니다.</p>
+                    </div>
+                </article>
+
+                <!-- 전월세 -->
+                <article class="faq-item" data-category="rent" id="faq-item-jeon">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-jeon" id="faq-btn-jeon">
+                        <span class="faq-trigger__cat">전월세</span>
+                        <span class="faq-trigger__q">Q. 전세와 월세 중 무엇이 더 유리한가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-jeon" role="region" aria-labelledby="faq-btn-jeon" hidden>
+                        <p>보증금·월세·거주 기간·금리·기회비용에 따라 달라집니다. 전월세 계산기는 <strong>참고용 비교</strong>이며, 실제 결정 전에는 현금 흐름·이사 계획을 함께 검토하세요.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="rent">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-maint" id="faq-btn-maint">
+                        <span class="faq-trigger__cat">전월세</span>
+                        <span class="faq-trigger__q">Q. 관리비도 포함해서 계산되나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-maint" role="region" aria-labelledby="faq-btn-maint" hidden>
+                        <p>네. 입력하신 <strong>관리비</strong>를 월 주거비에 포함해 비교합니다. 실제 관리비는 세대·시즌에 따라 달라질 수 있습니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="rent">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-region" id="faq-btn-region">
+                        <span class="faq-trigger__cat">전월세</span>
+                        <span class="faq-trigger__q">Q. 지역별 평균 시세가 반영되나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-region" role="region" aria-labelledby="faq-btn-region" hidden>
+                        <p>일부 시나리오에서 <strong>참고용 전세 수준</strong>을 가정할 수 있으나, 실제 시세·매물 조건과는 다를 수 있습니다. 중개·금융 정보와 병행해 확인하세요.</p>
+                    </div>
+                </article>
+
+                <!-- 대출 -->
+                <article class="faq-item" data-category="loan" id="faq-item-repay">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-repay" id="faq-btn-repay">
+                        <span class="faq-trigger__cat">대출</span>
+                        <span class="faq-trigger__q">Q. 원리금균등과 원금균등 차이는 무엇인가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-repay" role="region" aria-labelledby="faq-btn-repay" hidden>
+                        <p><strong>원리금균등</strong>은 매월 납입액이 같고, <strong>원금균등</strong>은 매월 갚는 원금이 같아 초기 부담이 클 수 있습니다. 총 이자는 일반적으로 원금균등이 더 적을 수 있습니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="loan">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-rateup" id="faq-btn-rateup">
+                        <span class="faq-trigger__cat">대출</span>
+                        <span class="faq-trigger__q">Q. 금리가 오르면 결과도 달라지나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-rateup" role="region" aria-labelledby="faq-btn-rateup" hidden>
+                        <p>네. 입력하신 <strong>연 이자율</strong>이 바뀌면 월 납입액·총 이자 등이 함께 달라집니다. 변동금리 상품은 이후 금리 변동에 따라 실제 부담이 달라질 수 있습니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="loan">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-bank" id="faq-btn-bank">
+                        <span class="faq-trigger__cat">대출</span>
+                        <span class="faq-trigger__q">Q. 실제 은행 상품과 동일한가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-bank" role="region" aria-labelledby="faq-btn-bank" hidden>
+                        <p>아니요. 청년지갑 대출 계산기는 <strong>일반적인 수학적 모델</strong>에 기반한 참고용입니다. 절사·수수료·보험·우대금리 등은 반영되지 않을 수 있습니다.</p>
+                    </div>
+                </article>
+
+                <!-- 연봉 -->
+                <article class="faq-item" data-category="salary" id="faq-item-net">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-net" id="faq-btn-net">
+                        <span class="faq-trigger__cat">연봉</span>
+                        <span class="faq-trigger__q">Q. 세전 연봉과 실수령액 차이는 왜 있나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-net" role="region" aria-labelledby="faq-btn-net" hidden>
+                        <p>연봉은 보통 <strong>세전 금액</strong>이며, 4대보험과 소득세·지방소득세 등이 공제된 뒤의 금액이 실수령액에 가깝습니다. 청년지갑 계산기는 간이 추정치입니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="salary">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-dep" id="faq-btn-dep">
+                        <span class="faq-trigger__cat">연봉</span>
+                        <span class="faq-trigger__q">Q. 부양가족 수에 따라 달라지나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-dep" role="region" aria-labelledby="faq-btn-dep" hidden>
+                        <p>실제 원천징수에서는 공제 대상 가족 등에 따라 세액이 달라질 수 있습니다. 본 서비스는 선택하신 인원 수에 따라 <strong>간이 조정</strong>합니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="salary">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-4ins" id="faq-btn-4ins">
+                        <span class="faq-trigger__cat">연봉</span>
+                        <span class="faq-trigger__q">Q. 4대보험은 어떤 항목인가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-4ins" role="region" aria-labelledby="faq-btn-4ins" hidden>
+                        <p><strong>국민연금·건강보험·장기요양보험·고용보험</strong>의 근로자 부담 분을 합산해 보여 드립니다. 요율은 참고용 단순 모델입니다.</p>
+                    </div>
+                </article>
+
+                <!-- 정부지원금 -->
+                <article class="faq-item" data-category="support">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-anyone" id="faq-btn-anyone">
+                        <span class="faq-trigger__cat">정부지원금</span>
+                        <span class="faq-trigger__q">Q. 청년 지원금은 누구나 받을 수 있나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-anyone" role="region" aria-labelledby="faq-btn-anyone" hidden>
+                        <p>아닙니다. 사업마다 <strong>연령·소득·지역·신청 기간</strong> 등 요건이 있습니다. 청년지갑은 세부 신청 절차를 대행하지 않으니, 정부·지자체 공고를 확인해 주세요.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="support">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-local" id="faq-btn-local">
+                        <span class="faq-trigger__cat">정부지원금</span>
+                        <span class="faq-trigger__q">Q. 지역마다 혜택이 다른가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-local" role="region" aria-labelledby="faq-btn-local" hidden>
+                        <p>네. <strong>지자체·부처 사업</strong>에 따라 지원 내용·대상이 다릅니다. 거주지 기준 공고를 꼭 확인하세요.</p>
+                    </div>
+                </article>
+
+                <!-- 사이트 -->
+                <article class="faq-item" data-category="site">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-store" id="faq-btn-store">
+                        <span class="faq-trigger__cat">사이트 이용</span>
+                        <span class="faq-trigger__q">Q. 계산 결과는 저장되나요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-store" role="region" aria-labelledby="faq-btn-store" hidden>
+                        <p>별도 회원 시스템이 없으면 <strong>브라우저에 저장되지 않습니다</strong>. 필요한 결과는 스크린샷·메모로 남기시길 권장합니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="site">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-member" id="faq-btn-member">
+                        <span class="faq-trigger__cat">사이트 이용</span>
+                        <span class="faq-trigger__q">Q. 회원가입이 필요한가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-member" role="region" aria-labelledby="faq-btn-member" hidden>
+                        <p>아니요. 청년지갑 계산기·안내는 <strong>별도 가입 없이</strong> 이용할 수 있도록 구성되어 있습니다.</p>
+                    </div>
+                </article>
+                <article class="faq-item" data-category="site" id="faq-item-mobile">
+                    <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-mobile" id="faq-btn-mobile">
+                        <span class="faq-trigger__cat">사이트 이용</span>
+                        <span class="faq-trigger__q">Q. 모바일에서도 이용 가능한가요?</span>
+                        <span class="faq-trigger__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <div class="faq-panel" id="faq-panel-mobile" role="region" aria-labelledby="faq-btn-mobile" hidden>
+                        <p>네. <strong>반응형 웹</strong>으로 제작되어 스마트폰·태블릿에서도 이용할 수 있습니다.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

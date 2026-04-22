@@ -1,0 +1,463 @@
+/* 1억 만들기 계산기 — goal-100m.html */
+
+.page-goal-100m [id^="section-"] {
+    scroll-margin-top: 96px;
+}
+
+.tool-main {
+    padding: 44px 0 70px;
+    background: #f1f5f9;
+}
+
+.tool-layout {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 22px;
+    max-width: 1120px;
+    margin: 0 auto;
+    align-items: start;
+    min-width: 0;
+}
+
+/* 그리드 자식이 min-content로 폭을 밀어 부모/카드 밖으로 나가는 것 방지 */
+.tool-layout > * {
+    min-width: 0;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
+    padding: 26px 22px 28px;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.tool-card__head {
+    border-bottom: 1px solid #eef2f7;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.tool-card__title {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #111827;
+}
+
+.tool-card__desc {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.55;
+}
+
+.tool-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 6px 0 16px;
+}
+
+.tool-tab {
+    flex: 1 1 220px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.tool-tab:hover {
+    transform: translateY(-1px);
+    border-color: #c7d2fe;
+    box-shadow: 0 10px 22px rgba(99, 102, 241, 0.10);
+}
+
+.tool-tab.is-active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(14, 165, 233, 0.10));
+    border-color: #c7d2fe;
+    color: #4338ca;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.field__label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    color: #334155;
+    margin: 0 0 8px;
+}
+
+.field__hint {
+    font-weight: 700;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.field__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.field__row--tight {
+    margin-top: 10px;
+}
+
+.field__input {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #dbe3ef;
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field__input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.field__unit {
+    flex-shrink: 0;
+    font-weight: 800;
+    color: #64748b;
+}
+
+.field__note {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.55;
+}
+
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-weight: 800;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+    border-color: #c7d2fe;
+    background: #f8fafc;
+}
+
+.pill.is-active {
+    background: #eef2ff;
+    border-color: #c7d2fe;
+    color: #4338ca;
+}
+
+.tool-actions {
+    margin-top: 16px;
+    display: grid;
+    gap: 10px;
+}
+
+.tool-btn {
+    width: 100%;
+    border-radius: 16px;
+    min-height: 52px;
+    font-weight: 900;
+}
+
+.tool-error {
+    margin: 0;
+    font-size: 12px;
+    color: #ef4444;
+    min-height: 1.2em;
+}
+
+.kpi-grid {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+    width: 100%;
+}
+
+.kpi {
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 14px 14px;
+    background: linear-gradient(180deg, #fff, #fafbff);
+    min-width: 0;
+}
+
+.kpi__label {
+    font-size: 12px;
+    font-weight: 900;
+    color: #64748b;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+}
+
+.kpi__value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #312e81;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.35;
+}
+
+.progress-wrap {
+    margin-top: 16px;
+    border-top: 1px solid #eef2f7;
+    padding-top: 16px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.progress-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+    min-width: 0;
+}
+
+.progress-label {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 900;
+}
+
+.progress-pct {
+    font-size: 12px;
+    color: #4338ca;
+    font-weight: 900;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.progress {
+    height: 12px;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 999px;
+    background: #e2e8f0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.progress__bar {
+    display: block;
+    height: 100%;
+    width: 0%;
+    max-width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    transition: width 0.6s ease;
+    box-sizing: border-box;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* 우측 결과 카드(고정 ~420px)에서 4열은 숫자가 길어지면 끝 카드(목표)가 밀림 → 2×2 */
+@media (min-width: 1041px) {
+    .tool-card--result .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.timeline__item {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 10px 8px;
+    background: #fff;
+    text-align: center;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.timeline__item--goal {
+    border-color: #c7d2fe;
+    background: linear-gradient(180deg, #eef2ff, #fff);
+}
+
+.timeline__t {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.timeline strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+    hyphens: none;
+}
+
+.result-note {
+    margin-top: 16px;
+    padding: 14px 14px;
+    border-radius: 18px;
+    border: 1px dashed #c7d2fe;
+    background: rgba(238, 242, 255, 0.6);
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 700;
+}
+
+.info-section {
+    padding: 60px 0 70px;
+    background: #fff;
+}
+
+.info-section--alt {
+    background: #f1f5f9;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px 16px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+    height: 100%;
+}
+
+.info-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.info-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.info-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 980px;
+    margin: 0 auto 16px;
+}
+
+.info-pill {
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid #c7d2fe;
+    background: #eef2ff;
+    color: #4338ca;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.example {
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #475569;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.example:hover {
+    transform: translateY(-1px);
+    border-color: #c7d2fe;
+    background: #f8fafc;
+}
+
+.example.is-active {
+    border-color: #c7d2fe;
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+@media (max-width: 1040px) {
+    .tool-layout {
+        grid-template-columns: 1fr;
+    }
+    .info-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    .timeline__item {
+        padding: 10px 6px;
+    }
+    .timeline strong {
+        font-size: 11px;
+    }
+}
+

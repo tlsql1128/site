@@ -1,0 +1,243 @@
+/* 청년 보험 입문 가이드 — insurance.html */
+
+.page-insurance [id^="section-"] {
+    scroll-margin-top: 96px;
+}
+
+.ins-search__input {
+    width: 100%;
+    border: 1px solid #dbe3ef;
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+}
+
+.ins-search__input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.ins-main {
+    padding: 52px 0 66px;
+    background: #f1f5f9;
+}
+
+.ins-terms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.ins-term {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 18px 16px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    height: 100%;
+}
+
+.ins-term:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(99, 102, 241, 0.12);
+    border-color: #c7d2fe;
+}
+
+.ins-term.is-hidden {
+    display: none;
+}
+
+.ins-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    margin-bottom: 8px;
+}
+
+.ins-badge--mid {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.ins-term h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.ins-term p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+.ins-section {
+    padding: 60px 0 70px;
+    background: #f1f5f9;
+}
+
+.ins-section--white {
+    background: #fff;
+}
+
+.ins-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.ins-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 18px 16px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, 0.05);
+    height: 100%;
+}
+
+.ins-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.ins-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.checklist {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    font-weight: 800;
+    color: #334155;
+    cursor: pointer;
+}
+
+.check input {
+    margin-top: 3px;
+}
+
+.checkbar {
+    height: 14px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    overflow: hidden;
+    margin: 16px 0 8px;
+}
+
+.checkbar__fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #6366f1, #22d3ee);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.checkscore {
+    font-size: 14px;
+    font-weight: 900;
+    color: #4f46e5;
+    text-align: center;
+    margin: 0;
+}
+
+.ins-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 450;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.ins-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ins-modal__box {
+    max-width: 520px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px 22px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
+}
+
+.ins-modal__close {
+    float: right;
+    border: none;
+    background: #f1f5f9;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.ins-modal__title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin: 0 0 12px;
+    clear: both;
+}
+
+.ins-modal__body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #475569;
+}
+
+@media (max-width: 1040px) {
+    .ins-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .ins-terms {
+        grid-template-columns: 1fr;
+    }
+    .ins-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

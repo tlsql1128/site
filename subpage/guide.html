@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년 재테크 입문 가이드. 적금·예금·ETF·CMA를 쉽게 배우고 돈 모으는 루틴을 익혀보세요.">
+    <meta property="og:title" content="청년 재테크 입문 가이드 | 청년지갑">
+    <title>청년 재테크 입문 가이드 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/guide.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/guide.js" defer></script>
+</head>
+<body class="page-guide">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="guide-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 금융 학습</p>
+            <h1 id="guide-hero-title" class="sub-hero__title">청년 재테크 입문 가이드</h1>
+            <p class="sub-hero__desc">적금, 예금, ETF, CMA, 소비 습관까지<br>처음 시작하는 재테크를 쉽게 배워보세요.</p>
+        </div>
+    </section>
+
+    <section id="section-search" class="sub-hero__below" aria-label="용어 검색">
+        <div class="sub-hero__below-inner">
+            <div class="sub-hero-card">
+                <label class="visually-hidden" for="guide-search-input">용어 검색</label>
+                <input type="search" id="guide-search-input" class="guide-search__input" placeholder="궁금한 금융 용어를 검색해보세요. 예: 적금, ETF, 신용점수" maxlength="40" aria-label="용어 검색">
+                <p id="guide-search-feedback" style="margin:10px 0 0;font-size:12px;color:#64748b;" role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-terms" class="guide-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">재테크 기초 용어</h2>
+                <p class="section-desc">카드를 눌러 상세 설명을 확인하세요.</p>
+            </div>
+            <div class="guide-top-terms" aria-label="많이 보는 용어 TOP">
+                <button type="button" class="guide-top-term" data-q="적금">적금</button>
+                <button type="button" class="guide-top-term" data-q="예금">예금</button>
+                <button type="button" class="guide-top-term" data-q="ETF">ETF</button>
+                <button type="button" class="guide-top-term" data-q="CMA">CMA</button>
+                <button type="button" class="guide-top-term" data-q="신용점수">신용점수</button>
+                <button type="button" class="guide-top-term" data-q="복리">복리</button>
+            </div>
+            <div class="guide-terms">
+                <article class="guide-term-card" data-term="saving" data-search="적금 저축 만기">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>적금이란?</h3>
+                    <p>정해진 기간 동안 꾸준히 납입하는 저축 상품입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="deposit" data-search="예금 목돈">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>예금이란?</h3>
+                    <p>한 번에 맡겨 만기까지 보관하는 저축입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="cma" data-search="CMA 증권 통장">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>CMA란?</h3>
+                    <p>증권사에서 쓰는 수시 입출금에 가까운 예금성 상품입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="etf" data-search="ETF 펀드 투자">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>ETF란?</h3>
+                    <p>거래소에 상장되어 사고팔 수 있는 펀드입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="emergencyFund" data-search="비상금 통장 비상금 예비비">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>비상금 통장</h3>
+                    <p>갑작스런 지출을 막아주는 안전장치입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="budget" data-search="예산 관리 생활비 예산">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>예산 관리</h3>
+                    <p>돈의 ‘용도’를 먼저 정해 지키는 습관입니다.</p>
+                </article>
+                <article class="guide-term-card" data-term="fixedCost" data-search="고정비 구독 보험 통신비">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>고정비</h3>
+                    <p>매달 거의 고정으로 나가는 비용이에요.</p>
+                </article>
+                <article class="guide-term-card" data-term="variableCost" data-search="변동비 식비 교통비 쇼핑">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>변동비</h3>
+                    <p>생활 패턴에 따라 달라지는 비용이에요.</p>
+                </article>
+                <article class="guide-term-card" data-term="autoTransfer" data-search="자동이체 자동저축 급여일">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>자동이체</h3>
+                    <p>저축을 ‘결심’이 아닌 ‘시스템’으로 만들어요.</p>
+                </article>
+                <article class="guide-term-card" data-term="interest" data-search="이자 단리 복리 원금">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>이자·원금·단리·복리</h3>
+                    <p>수익 계산의 기본 개념을 한 번에 정리해요.</p>
+                </article>
+                <article class="guide-term-card" data-term="creditScore" data-search="신용점수 NICE KCB 연체">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>신용점수</h3>
+                    <p>대출·카드 발급·금리에 영향을 줄 수 있어요.</p>
+                </article>
+                <article class="guide-term-card" data-term="splitAccounts" data-search="소비 통장 분리 생활비 통장">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>소비 통장 분리</h3>
+                    <p>생활비를 한 통장에 모아 과소비를 줄여요.</p>
+                </article>
+                <article class="guide-term-card" data-term="youthLeap" data-search="청년도약계좌 정책금융 적금">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>청년도약계좌</h3>
+                    <p>조건에 따라 정부 지원이 더해질 수 있어요.</p>
+                </article>
+                <article class="guide-term-card" data-term="jeonseLoan" data-search="전세대출 전세자금 대출 보증">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>전세대출</h3>
+                    <p>전세 보증금을 마련할 때 쓰는 대출이에요.</p>
+                </article>
+                <article class="guide-term-card" data-term="rentBurden" data-search="월세 부담률 월세 비율 소득">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>월세 부담률</h3>
+                    <p>월세가 소득에서 차지하는 비율을 말해요.</p>
+                </article>
+                <article class="guide-term-card" data-term="loanRate" data-search="대출 금리 금리 비교 이자율">
+                    <span class="guide-term-card__badge">초급</span>
+                    <h3>대출 금리</h3>
+                    <p>같은 금액도 금리에 따라 총 비용이 달라져요.</p>
+                </article>
+                <article class="guide-term-card" data-term="repayType" data-search="상환 방식 원리금균등 원금균등">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>상환 방식</h3>
+                    <p>월 납입·총 이자 구조가 달라지는 핵심 요소예요.</p>
+                </article>
+                <article class="guide-term-card" data-term="diversification" data-search="분산 투자 리스크 관리 ETF">
+                    <span class="guide-term-card__badge guide-term-card__badge--mid">중급</span>
+                    <h3>분산 투자·리스크 관리</h3>
+                    <p>한 번에 크게보다, 오래 가는 방식이 중요해요.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-situations" class="guide-section guide-section--alt">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">상황별 추천 읽기</h2>
+                <p class="section-desc">지금 내 상황에 맞는 키워드부터 가볍게 잡아보세요.</p>
+            </div>
+            <div class="guide-situation">
+                <div class="guide-situation__card">
+                    <h3>사회초년생이 먼저 알면 좋은 용어</h3>
+                    <p>비상금, 고정비/변동비, 자동이체, 예산 관리</p>
+                </div>
+                <div class="guide-situation__card">
+                    <h3>월급 관리 전에 알아둘 개념</h3>
+                    <p>소비 통장 분리, 생활비 예산, 이자/원금</p>
+                </div>
+                <div class="guide-situation__card">
+                    <h3>대출 받기 전에 알아둘 용어</h3>
+                    <p>신용점수, 금리, 상환 방식, 월 상환 부담</p>
+                </div>
+                <div class="guide-situation__card">
+                    <h3>투자를 시작하기 전 체크</h3>
+                    <p>ETF, 분산 투자, 리스크 관리, 복리</p>
+                </div>
+            </div>
+            <div class="guide-quote" id="guide-quote" role="status" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <section id="section-routine" class="guide-section guide-section--alt">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">돈 모으는 루틴</h2>
+            </div>
+            <div class="guide-routine">
+                <ul class="guide-routine__list">
+                    <li>월급날 자동저축 — 먼저 저축하고 나머지로 소비하기</li>
+                    <li>소비 통장 분리 — 생활비만 넣은 통장 쓰기</li>
+                    <li>비상금 만들기 — 최소 3~6개월 생활비 목표</li>
+                    <li>고정비 점검 — 구독·보험료·통신비 주기적으로 확인</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-steps" class="guide-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">사회초년생 추천 순서</h2>
+            </div>
+            <div class="guide-steps">
+                <div class="guide-step"><div class="guide-step__num">STEP 1</div><p>비상금 100만 원부터</p></div>
+                <div class="guide-step"><div class="guide-step__num">STEP 2</div><p>적금·저축 습관</p></div>
+                <div class="guide-step"><div class="guide-step__num">STEP 3</div><p>소비 습관 관리</p></div>
+                <div class="guide-step"><div class="guide-step__num">STEP 4</div><p>투자 공부 시작</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-dont" class="guide-section guide-section--alt">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">하지 말아야 할 습관</h2>
+            </div>
+            <div class="guide-dont">
+                <div class="guide-dont__item">충동구매 — 24시간 룰로 미루기</div>
+                <div class="guide-dont__item">리볼빙 — 최소만 내는 카드 빚 누적</div>
+                <div class="guide-dont__item">무계획 소비 — 가계부 한 달만이라도 써보기</div>
+                <div class="guide-dont__item">고금리 대출 방치 — 금리 비교·상환 계획 세우기</div>
+            </div>
+            <div class="guide-tip" id="guide-random-tip" role="status">오늘의 금융 꿀팁을 불러오는 중…</div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="guide-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">적금부터 해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>비상금이 어느 정도 있으면 적금·저축을 병행하기 좋아요. 상황에 맞게 순서를 조정하면 됩니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">ETF는 위험한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>원금 손실 가능성이 있는 투자 상품이에요. 남은 금액·기간·분산 원칙을 먼저 이해하는 것이 좋습니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">월급이 적어도 가능할까요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>소액이라도 자동이체로 습관을 만드는 것이 중요해요. 금액은 나중에 늘려도 됩니다.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="guide-modal" class="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
+        <div class="guide-modal__box">
+            <button type="button" class="guide-modal__close" id="guide-modal-close" aria-label="닫기">×</button>
+            <h3 id="guide-modal-title" class="guide-modal__title"></h3>
+            <div id="guide-modal-body" class="guide-modal__body"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+</html>

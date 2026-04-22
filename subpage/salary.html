@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="연봉 실수령액 계산기. 세전 연봉과 부양가족 수를 입력해 월 실수령액, 4대보험, 세금 공제를 추정해 확인하세요.">
+    <meta name="keywords" content="연봉, 실수령액, 급여 계산기, 4대보험, 청년">
+    <meta property="og:title" content="연봉 실수령액 계산기 | 청년지갑">
+    <title>연봉 실수령액 계산기 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/salary.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/salary.js" defer></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="salary-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 급여·세금 이해</p>
+            <h1 id="salary-hero-title" class="sub-hero__title">연봉 실수령액 계산기</h1>
+            <p class="sub-hero__desc">연봉과 부양가족 수를 입력하면<br>월 실수령액과 공제 내역을 한눈에 확인할 수 있습니다.<br>세전과 세후 차이까지 직관적으로 비교해 보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-calculator" class="btn primary">계산 시작하기</a>
+                <a href="#section-basis" class="btn secondary">계산 기준 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-calculator" class="salary-main">
+        <div class="container">
+            <p class="salary-source-note" role="note">본 결과는 <strong>참고용 추정치</strong>이며, 회사 규정·비과세 한도·공제 신청 여부에 따라 실제 금액과 다를 수 있습니다.</p>
+
+            <div class="salary-calc-layout">
+                <div class="salary-card salary-card--input">
+                    <div class="salary-card__head">
+                        <h2 class="salary-card__title">입력 정보</h2>
+                        <p class="salary-card__desc">세전 연봉과 부양가족 수를 입력한 뒤 <strong>실수령액 계산하기</strong>를 눌러 주세요.</p>
+                    </div>
+
+                    <div class="salary-field">
+                        <label class="salary-label" for="salary-annual-input">세전 연봉</label>
+                        <div class="salary-row">
+                            <input type="text" inputmode="numeric" id="salary-annual-input" class="salary-input salary-input--money" placeholder="36,000,000" autocomplete="off" aria-describedby="salary-annual-hint salary-error">
+                            <span class="salary-unit">원</span>
+                        </div>
+                        <p id="salary-annual-hint" class="salary-hint">세전 연봉 기준(상여·수당 포함 여부는 회사마다 다를 수 있음)</p>
+                    </div>
+
+                    <div class="salary-field">
+                        <span class="salary-label" id="salary-dep-label">부양가족 수</span>
+                        <p class="salary-hint salary-hint--tight">본인을 제외한 <strong>공제 대상 부양가족</strong> 수를 선택하세요. 세액 추정에 반영됩니다.</p>
+                        <div class="salary-dep-tabs" role="group" aria-labelledby="salary-dep-label">
+                            <button type="button" class="salary-dep-tab" data-deps="1" aria-pressed="false">1명</button>
+                            <button type="button" class="salary-dep-tab is-active" data-deps="2" aria-pressed="true">2명</button>
+                            <button type="button" class="salary-dep-tab" data-deps="3" aria-pressed="false">3명</button>
+                            <button type="button" class="salary-dep-tab" data-deps="4" aria-pressed="false">4명 이상</button>
+                        </div>
+                    </div>
+
+                    <div class="salary-field">
+                        <label class="salary-label" for="salary-nontax-input">비과세액 <span class="salary-label-optional">(선택)</span></label>
+                        <div class="salary-row">
+                            <input type="text" inputmode="numeric" id="salary-nontax-input" class="salary-input salary-input--money" placeholder="0" autocomplete="off" aria-describedby="salary-nontax-hint">
+                            <span class="salary-unit">원/월</span>
+                        </div>
+                        <p id="salary-nontax-hint" class="salary-hint">식대 등 월 비과세 항목이 있으면 입력하세요. 없으면 0으로 두면 됩니다.</p>
+                    </div>
+
+                    <p class="salary-error" id="salary-error" role="alert" aria-live="polite"></p>
+                    <button type="button" class="salary-btn salary-btn--primary salary-btn--block" id="btn-salary-calc">실수령액 계산하기</button>
+                </div>
+
+                <div class="salary-card salary-card--result" id="panel-result">
+                    <div class="salary-card__head">
+                        <h2 class="salary-card__title">계산 결과</h2>
+                        <p class="salary-card__desc">4대보험·세금을 <strong>간이 추정</strong>한 월 실수령액입니다.</p>
+                    </div>
+
+                    <div class="salary-result-hero">
+                        <span class="salary-result-hero__label">월 실수령액</span>
+                        <p class="salary-result-hero__value"><span id="result-net-monthly" data-val="0">0</span><span class="salary-result-won">원</span></p>
+                    </div>
+
+                    <ul class="salary-result-list">
+                        <li><span>세전 월급</span><strong><span id="result-gross-monthly">0</span> 원</strong></li>
+                        <li><span>월 공제액 합계</span><strong><span id="result-deduct-monthly">0</span> 원</strong></li>
+                        <li><span>연 실수령액</span><strong><span id="result-net-annual">0</span> 원</strong></li>
+                    </ul>
+
+                    <p class="salary-result-summary" id="result-summary">연봉과 부양가족 수를 입력한 뒤 계산하기를 눌러 주세요.</p>
+
+                    <div class="salary-donut-block" aria-labelledby="salary-donut-heading">
+                        <h3 id="salary-donut-heading" class="salary-donut-block__title">세전 월급 대비 비율</h3>
+                        <div class="salary-donut-wrap">
+                            <div class="salary-donut" role="img" aria-label="세전 월급 대비 실수령액과 공제 비율 도넛 차트">
+                                <div class="salary-donut__figure">
+                                    <div class="salary-donut__ring" id="salary-donut-ring" style="--net-pct: 0"></div>
+                                    <div class="salary-donut__center">
+                                        <span class="salary-donut__pct" id="salary-donut-pct">—</span>
+                                        <span class="salary-donut__pct-label">실수령 비율</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="salary-donut-legend">
+                                <li><span class="salary-legend-dot salary-legend-dot--net"></span> 월 실수령 <strong id="legend-net">0원</strong></li>
+                                <li><span class="salary-legend-dot salary-legend-dot--ded"></span> 월 공제 합계 <strong id="legend-ded">0원</strong></li>
+                                <li class="salary-donut-legend__base">기준: 세전 월급 <span id="legend-gross">0원</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="section-deductions" class="salary-deductions salary-reveal">
+                <h3 class="salary-deductions__title">공제 항목 상세</h3>
+                <p class="salary-deductions__desc">4대보험(근로자 부담)과 소득세·지방소득세를 월·연 기준으로 나누어 표시했습니다.</p>
+                <div class="salary-table-wrap">
+                    <table class="salary-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">월 공제액</th>
+                                <th scope="col">연 공제액</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salary-table-body">
+                            <tr><td colspan="3" class="salary-table__empty">계산 후 표시됩니다.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-basis" class="salary-info">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">계산 기준 안내</h2>
+                <p class="section-desc">4대보험 요율은 일반적인 <strong>근로자 부담 분</strong>을 반영했고, 소득세는 부양가족 수에 따른 <strong>간이 추정 세율</strong>을 적용했습니다. 실제 원천징수와는 차이가 날 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-tips" class="salary-info salary-info--muted">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">급여 계산 체크포인트</h2>
+            </div>
+            <div class="salary-triple">
+                <article class="salary-tip-card salary-reveal">
+                    <h3 class="salary-tip-card__title">실수령액은 세전 연봉과 다릅니다</h3>
+                    <p class="salary-tip-card__text">연봉 계약액은 세전 기준이며, 공제 후 통장으로 들어오는 금액은 더 작을 수 있습니다.</p>
+                </article>
+                <article class="salary-tip-card salary-reveal">
+                    <h3 class="salary-tip-card__title">4대보험과 세금이 함께 공제됩니다</h3>
+                    <p class="salary-tip-card__text">국민연금·건강·요양·고용보험과 소득세·지방소득세가 함께 빠져나갑니다.</p>
+                </article>
+                <article class="salary-tip-card salary-reveal">
+                    <h3 class="salary-tip-card__title">부양가족 수에 따라 세금 부담이 달라질 수 있습니다</h3>
+                    <p class="salary-tip-card__text">공제 대상 가족이 많을수록 세액이 줄어드는 경향이 있습니다(실제는 신고·공제 요건에 따름).</p>
+                </article>
+            </div>
+
+            <div class="salary-recommend salary-reveal">
+                <h3 class="salary-recommend__title">이런 분께 추천합니다</h3>
+                <ul class="salary-recommend__list">
+                    <li>첫 취업을 준비하는 청년</li>
+                    <li>이직 전 실수령액이 궁금한 사용자</li>
+                    <li>연봉 협상 전 실제 수령 금액을 알고 싶은 사용자</li>
+                </ul>
+            </div>
+
+            <p class="salary-disclaimer salary-reveal" role="note">실제 급여는 회사 규정, 비과세 항목, 공제 기준에 따라 달라질 수 있으므로 참고용으로 활용해 주세요.</p>
+        </div>
+    </section>
+
+    <section id="section-faq" class="salary-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 연봉과 실수령액은 왜 차이가 나나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>연봉은 보통 세전 금액이며, 국민연금·건강보험 등 4대보험과 소득세·지방소득세가 공제된 뒤의 금액이 통장으로 입금됩니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 부양가족 수에 따라 실수령액이 달라지나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>원천징수 시 적용되는 세액은 부양가족 등 공제 상황에 영향을 받을 수 있습니다. 본 계산기는 선택한 인원 수에 따라 세액을 간이 조정합니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 4대보험은 어떤 항목이 포함되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>국민연금, 건강보험, 장기요양보험, 고용보험의 근로자 부담 분을 합산해 표시했습니다.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 세전/세후 금액은 어떻게 계산되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content">
+                        <p>세전 월급은 연봉을 12로 나눈 값이고, 4대보험과 세금 공제를 뺀 금액이 월 실수령액(세후) 추정치입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>

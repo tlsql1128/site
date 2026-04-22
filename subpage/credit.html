@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="청년 신용점수 관리 가이드. 연체 예방, 카드 사용 습관, 대출 전 체크리스트를 한곳에서.">
+    <meta property="og:title" content="청년 신용점수 관리 | 청년지갑">
+    <title>청년 신용점수 관리 | 청년지갑</title>
+    <link rel="icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../asset/css/style.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
+    <link rel="stylesheet" href="../asset/css/credit.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../asset/js/common.js"></script>
+    <script src="../asset/js/credit.js" defer></script>
+</head>
+<body class="page-credit">
+    <div id="header"></div>
+
+    <section id="section-hero" class="sub-hero" aria-labelledby="credit-hero-title">
+        <div class="container sub-hero__inner">
+            <p class="sub-hero__badge">청년지갑 · 신용 관리</p>
+            <h1 id="credit-hero-title" class="sub-hero__title">청년 신용점수 관리</h1>
+            <p class="sub-hero__desc">신용점수는 대출, 카드 발급, 금리에 영향을 줍니다.<br>지금부터 올바르게 관리해보세요.</p>
+            <div class="sub-hero__actions">
+                <a href="#section-checklist" class="btn primary">체크리스트로 점검하기</a>
+                <a href="#section-good" class="btn secondary">올리는 습관 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-what" class="credit-section credit-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">신용점수란?</h2>
+            </div>
+            <div class="credit-intro">
+                <p><strong>NICE·KCB</strong> 등 신용평가사가 금융 거래 이력을 바탕으로 산출하는 점수예요. 대출 승인·금리·카드 한도 등에 참고될 수 있습니다. 점수 체계와 조회 주기는 기관 안내를 따르세요.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-good" class="credit-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">점수에 도움이 되는 습관</h2>
+            </div>
+            <div class="credit-cards">
+                <div class="credit-card"><h3>연체하지 않기</h3><p>대출·카드·통신비까지 약속 날짜를 지키는 것이 가장 중요해요.</p></div>
+                <div class="credit-card"><h3>체크카드 꾸준히 사용</h3><p>본인 명의 결제 이력이 안정적으로 쌓이는 데 도움이 될 수 있어요.</p></div>
+                <div class="credit-card"><h3>대출 과다 사용 주의</h3><p>단기 다중 대출은 부담으로 볼 수 있어요. 필요한 만큼만 이용하세요.</p></div>
+                <div class="credit-card"><h3>카드 한도 과사용 주의</h3><p>한도 대비 사용액이 과하면 부담으로 해석될 수 있어요.</p></div>
+                <div class="credit-card"><h3>통신비 납부 확인</h3><p>미납이 신용정보에 반영될 수 있어요. 자동이체를 추천해요.</p></div>
+                <div class="credit-card"><h3>자동이체 설정 유지</h3><p>공과금·통신비·카드값을 자동이체로 관리하면 연체 위험을 줄여요.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-bad" class="credit-section credit-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">점수에 불리할 수 있는 행동</h2>
+            </div>
+            <div class="credit-cards">
+                <div class="credit-card credit-card--bad"><h3>연체</h3><p>한 번이라도 연체 기록이 남으면 회복에 시간이 걸릴 수 있어요.</p></div>
+                <div class="credit-card credit-card--bad"><h3>현금서비스 남용</h3><p>단기 자금에 의존하면 상환 부담이 커질 수 있어요.</p></div>
+                <div class="credit-card credit-card--bad"><h3>단기 대출 반복</h3><p>짧은 기간에 여러 건이 쌓이면 위험 신호로 볼 수 있어요.</p></div>
+                <div class="credit-card credit-card--bad"><h3>카드 돌려막기</h3><p>위험한 방식이에요. 상환 계획을 먼저 세우세요.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-checklist" class="credit-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">청년 맞춤 체크리스트</h2>
+                <p class="section-desc">해당 항목을 체크해 보세요.</p>
+            </div>
+            <div class="credit-check" id="credit-habit-check">
+                <label><input type="checkbox"> 나는 연체가 없다</label>
+                <label><input type="checkbox"> 카드값을 제때 낸다</label>
+                <label><input type="checkbox"> 소액 대출을 남발하지 않는다</label>
+                <label><input type="checkbox"> 통신·공과금 자동이체를 쓴다</label>
+                <label><input type="checkbox"> 대출·카드 한도를 과하게 쓰지 않는다</label>
+                <div class="credit-score-bar"><span class="credit-score-bar__fill" id="credit-habit-fill"></span></div>
+                <p class="credit-score-text" id="credit-habit-text">습관 점수 0점</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-quiz" class="credit-section credit-section--white">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">신용점수 자가진단 (참고)</h2>
+            </div>
+            <div class="credit-quiz">
+                <div class="credit-quiz__q">1. 카드값은 보통?</div>
+                <div class="credit-quiz__opts">
+                    <label><input type="radio" name="cq1" value="a"> 최소금액만 낸다</label>
+                    <label><input type="radio" name="cq1" value="b"> 전액 또는 큰 비율로 낸다</label>
+                </div>
+                <div class="credit-quiz__q">2. 최근 1년 연체 경험은?</div>
+                <div class="credit-quiz__opts">
+                    <label><input type="radio" name="cq2" value="a"> 있다</label>
+                    <label><input type="radio" name="cq2" value="b"> 없다</label>
+                </div>
+                <div class="credit-quiz__q">3. 단기 소액 대출을 여러 번 썼다?</div>
+                <div class="credit-quiz__opts">
+                    <label><input type="radio" name="cq3" value="a"> 자주 있다</label>
+                    <label><input type="radio" name="cq3" value="b"> 거의 없다</label>
+                </div>
+                <p style="text-align:center;margin-top:16px;">
+                    <button type="button" class="btn primary" id="credit-quiz-btn">결과 보기</button>
+                </p>
+                <p id="credit-quiz-result" class="credit-score-text" style="margin-top:14px;color:#475569;"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-challenge" class="credit-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">점수 올리기 30일 챌린지 · 대출 전 체크</h2>
+            </div>
+            <div class="credit-challenge">
+                <p style="margin:0 0 8px;font-weight:700;color:#4338ca;">30일 챌린지 예시</p>
+                <ol>
+                    <li>1주: 연체 0 확인 · 카드·통신 자동이체 점검</li>
+                    <li>2주: 불필요한 소액 대출 정리 계획 세우기</li>
+                    <li>3주: 카드 사용액을 한도의 절반 이하로 유지해 보기</li>
+                    <li>4주: 신용정보 조회(본인)로 현재 상태 점검</li>
+                </ol>
+                <p style="margin:16px 0 0;font-weight:700;color:#4338ca;">대출 전 체크</p>
+                <ul style="margin:8px 0 0;padding-left:1.2em;font-size:14px;color:#475569;line-height:1.7;">
+                    <li>필요 금액·상환 능력부터 적어 보기</li>
+                    <li>금리·중도상환 수수료 비교</li>
+                    <li>단기간 여러 금융사 조회는 자제</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-faq" class="credit-faq">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">체크카드만 써도 점수 오르나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>본인 명의 결제·상환 이력이 쌓이는 데 도움이 될 수 있어요. 다만 평가 방식은 기관별로 달라요.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">신용카드 없으면 불리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>카드가 없어도 다른 금융 이력으로 평가될 수 있어요. 본인 상황에 맞게 선택하면 됩니다.</p></div>
+                </div>
+                <div class="accordion-item">
+                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">대출 조회만 해도 떨어지나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <div class="accordion-content"><p>조회 기록이 남을 수 있어요. 여러 곳을 짧은 기간에 반복하는 것은 자제하는 편이 좋다고 알려져 있어요.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+</body>
+</html>
