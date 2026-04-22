@@ -1,4 +1,4 @@
-﻿// common.js - 공통 JavaScript 기능
+// common.js - 공통 JavaScript 기능
 
 $(document).ready(function() {
     // ============================================

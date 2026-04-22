@@ -164,18 +164,30 @@
 .cal-layout {
     display: grid;
     grid-template-columns: 1fr 320px;
-    gap: 22px;
+    gap: 16px 18px;
     max-width: 1100px;
     margin: 0 auto;
     align-items: start;
+    grid-template-areas:
+        "cal side"
+        "detail side";
 }
 
 .cal-card {
+    grid-area: cal;
     background: #fff;
     border-radius: 20px;
     border: 1px solid #e2e8f0;
     box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
     overflow: hidden;
+}
+
+.cal-detail {
+    grid-area: detail;
+}
+
+.cal-side {
+    grid-area: side;
 }
 
 .cal-weekdays {
@@ -313,14 +325,15 @@
 }
 
 .cal-detail {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 12px;
+    padding: 18px;
     border-radius: 18px;
     background: #fff;
     border: 1px solid #e2e8f0;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .cal-detail__empty {
@@ -399,6 +412,10 @@
 @media (max-width: 960px) {
     .cal-layout {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "cal"
+            "detail"
+            "side";
     }
 
     .cal-cell {

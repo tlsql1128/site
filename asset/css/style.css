@@ -71,6 +71,67 @@ body.is-leaving {
     padding: 0 20px;
 }
 
+/* ── 광고 공통 래퍼(카카오) — 구조/여백/정렬 안정화 ── */
+.ad-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 28px auto;
+}
+
+.ad-block.ad-side {
+    margin-top: 32px;
+}
+
+/* ── 2컬럼 계산기 페이지: ‘빈 공간 채우기’ 사이드 광고 배치 ── */
+.rent-calc-layout > .ad-block.ad-side,
+.loan-calc-layout > .ad-block.ad-side,
+.salary-calc-layout > .ad-block.ad-side,
+.planner-layout > .ad-block.ad-side,
+.support-layout > .ad-block.ad-side {
+    grid-column: 2;
+    justify-content: center;
+    margin: 18px auto 0;
+}
+
+/* 비교/설명 시작 전 “흐름형 광고”는 2컬럼 전체로 */
+.rent-calc-layout > .ad-block:not(.ad-side),
+.loan-calc-layout > .ad-block:not(.ad-side),
+.salary-calc-layout > .ad-block:not(.ad-side),
+.planner-layout > .ad-block:not(.ad-side),
+.support-layout > .ad-block:not(.ad-side) {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 979px) {
+    /* 모바일/태블릿: 사이드 금지 → 본문 흐름(중앙) */
+    .rent-calc-layout > .ad-block.ad-side,
+    .loan-calc-layout > .ad-block.ad-side,
+    .salary-calc-layout > .ad-block.ad-side,
+    .planner-layout > .ad-block.ad-side,
+    .support-layout > .ad-block.ad-side {
+        grid-column: 1 / -1;
+        margin: 22px auto;
+    }
+}
+
+/* 광고가 콘텐츠와 붙어 보이지 않게(PC) */
+@media (min-width: 980px) {
+    .ad-block {
+        scroll-margin-top: 96px;
+    }
+}
+
+/* 모바일: 광고 때문에 간격이 과하게 벌어지지 않게 */
+@media (max-width: 767px) {
+    .ad-block {
+        margin: 22px auto;
+    }
+    .ad-block.ad-side {
+        margin-top: 22px;
+    }
+}
+
 /* ── 광고 슬롯(카카오) ── */
 .yw-ad {
     padding: 26px 0;
@@ -84,6 +145,24 @@ body.is-leaving {
 .yw-ad__slot {
     width: 300px;
     min-height: 250px;
+}
+
+/* 2컬럼 계산기 페이지(좌 소개 영역)에서 광고가 카드처럼 섞이지 않도록 */
+.yw-ad--in-hero {
+    margin-top: 18px;
+    padding-top: 22px;
+    padding-bottom: 0;
+    border-top: 1px dashed rgba(148, 163, 184, 0.55);
+}
+
+.yw-ad--in-hero .yw-ad__inner {
+    justify-content: flex-start;
+}
+
+@media (max-width: 979px) {
+    .yw-ad--in-hero .yw-ad__inner {
+        justify-content: center;
+    }
 }
 
 /* 상단/여백 활용형(섹션에 자연스럽게 녹이기) */
@@ -868,6 +947,13 @@ button.hamburger:focus-visible {
     color: rgba(255, 255, 255, 0.65);
 }
 
+@media (max-width: 767px) {
+    .hero-search__input::placeholder {
+        font-size: 13.5px;
+        letter-spacing: -0.01em;
+    }
+}
+
 .hero-search__input:focus-visible {
     outline: 2px solid rgba(255, 255, 255, 0.75);
     outline-offset: 2px;
@@ -1189,48 +1275,82 @@ button.hamburger:focus-visible {
 
 /* 푸터 */
 .footer {
-    background-color: #343a40;
-    color: white;
-    padding: 40px 0 20px;
+    color: rgba(248, 250, 252, 0.92);
+    padding: 64px 0 26px;
+    background:
+        radial-gradient(900px 420px at 10% 0%, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
+        radial-gradient(900px 420px at 90% 10%, rgba(14, 165, 233, 0.14) 0%, transparent 55%),
+        linear-gradient(180deg, #0b1220 0%, #0b1220 25%, #0a1020 100%);
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+.footer-top {
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) 1fr;
+    gap: 28px 44px;
+    align-items: start;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
-.footer-about, .footer-links {
-    flex: 1;
-    min-width: 250px;
-    margin: 20px;
+.footer-brand {
+    position: relative;
+    padding-right: 12px;
 }
 
-.footer-links ul {
-    list-style: none;
+.footer-brand__mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.95) 0%, rgba(99, 102, 241, 0.95) 55%, rgba(124, 58, 237, 0.95) 100%);
+    box-shadow: 0 10px 28px rgba(99, 102, 241, 0.22);
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
 }
 
-.footer-links li {
-    margin-bottom: 10px;
+.footer-brand__markText {
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: -0.02em;
 }
 
-.footer-links a {
-    color: #adb5bd;
-    text-decoration: none;
+.footer-brand__title {
+    margin: 0 0 6px;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.96);
 }
 
-.footer-links a:hover {
-    color: white;
+.footer-brand__tagline {
+    margin: 0 0 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: rgba(199, 210, 254, 0.92);
+}
+
+.footer-brand__desc {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(203, 213, 225, 0.9);
+    max-width: 44ch;
 }
 
 .footer-links--grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 20px 28px;
-    flex: 2;
-    min-width: 260px;
-    margin: 20px;
+    gap: 20px 34px;
+    align-items: start;
+    min-width: 0;
 }
 
 .footer-links__title {
@@ -1242,10 +1362,57 @@ button.hamburger:focus-visible {
     margin: 0 0 12px;
 }
 
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin: 0 0 10px;
+}
+
+.footer-links a {
+    color: rgba(203, 213, 225, 0.9);
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 600;
+    display: inline-flex;
+    padding: 3px 0;
+    transition: color 0.18s ease, text-decoration-color 0.18s ease, transform 0.18s ease;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(99, 102, 241, 0.0);
+}
+
+.footer-links a:hover {
+    color: rgba(255, 255, 255, 0.98);
+    text-decoration: underline;
+    text-decoration-color: rgba(99, 102, 241, 0.55);
+}
+
+.footer-links a:focus-visible {
+    outline: 3px solid rgba(124, 58, 237, 0.35);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
 .footer-bottom {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    border-top: 1px solid #495057;
-    padding-top: 20px;
+}
+
+.footer-bottom__copy {
+    margin: 0;
+    font-size: 12.5px;
+    color: rgba(148, 163, 184, 0.95);
+    line-height: 1.6;
 }
 
 /* 서브 페이지 스타일 */

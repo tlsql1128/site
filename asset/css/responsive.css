@@ -19,9 +19,9 @@
         gap: 20px;
     }
 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
 
     .calc-wrapper {
@@ -57,12 +57,12 @@
     }
 
     .hero {
-        padding: 48px 0 56px;
-        min-height: clamp(640px, 86vh, 760px);
+        padding: 34px 0 44px;
+        min-height: auto;
     }
 
     .hero-kv {
-        margin-bottom: 22px;
+        margin-bottom: 14px;
     }
 
     .hero__eyebrow {
@@ -71,8 +71,10 @@
     }
 
     .hero .page-title {
-        font-size: clamp(1.5rem, 6vw, 1.875rem);
-        margin-bottom: 12px;
+        font-size: clamp(1.85rem, 7.2vw, 2.25rem);
+        margin-bottom: 10px;
+        line-height: 1.18;
+        letter-spacing: -0.04em;
     }
 
     .page-title--hero {
@@ -97,8 +99,8 @@
     .hero .page-lead,
     .page-lead--hero {
         white-space: normal;
-        font-size: 14px;
-        line-height: 1.65;
+        font-size: 15px;
+        line-height: 1.55;
         letter-spacing: -0.01em;
         padding: 0 4px;
     }
@@ -109,29 +111,35 @@
     }
 
     .hero-search__box {
-        padding: 6px 6px 6px 12px;
-        gap: 6px;
+        padding: 10px 10px 10px 14px;
+        gap: 8px;
         border-radius: var(--radius-lg);
     }
 
     .hero-search__input {
-        font-size: 14px;
-        padding: 10px 4px;
+        font-size: 15px;
+        line-height: 1.25;
+        padding: 12px 6px;
     }
 
     .hero-search__submit {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
     }
 
     .hero-chips {
-        margin-top: 16px;
+        margin-top: 12px;
         gap: 8px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
     }
 
     .hero-chip {
         font-size: 12px;
         padding: 7px 12px;
+        white-space: nowrap;
     }
 
     .features {
@@ -143,7 +151,7 @@
     }
 
     .flow {
-        padding: 60px 0;
+        padding: 44px 0;
     }
 
     .recommend {
@@ -172,12 +180,37 @@
     }
 
     .footer {
-        padding: 30px 0 15px;
+        padding: 44px 0 18px;
     }
 
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        text-align: left;
+        padding-bottom: 22px;
+    }
+
+    .footer-brand__desc {
+        max-width: none;
+    }
+
+    .footer-links--grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 20px;
+    }
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .footer-bottom {
+        justify-content: flex-start;
+        text-align: left;
     }
 
     /* 계산기 */

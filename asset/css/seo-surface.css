@@ -169,6 +169,12 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .seo-kpi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .seo-kpi__item {
   display: flex;
   flex-direction: column;
@@ -317,6 +323,42 @@ body {
   top: 0.05rem;
   color: #0c8ecf;
   font-weight: 900;
+}
+
+/* ── 공통: 칩 버튼형 내부링크 (수동 적용 전용) ── */
+.seo-chip-link {
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 2px 6px 2px 0;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #6b46ff;
+  background: #f7f4ff;
+  border: 1px solid #e4ddff;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.seo-chip-link:hover {
+  background: #eee7ff;
+  color: #5a35ea;
+  border-color: #d6caff;
+}
+
+.seo-chip-link:focus-visible {
+  outline: 2px solid rgba(107, 70, 255, 0.25);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .seo-chip-link {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
 }
 
 .seo-aside {
