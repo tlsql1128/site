@@ -1,0 +1,515 @@
+/* 청년지갑 / Youth Wallet — 실서비스급 UI 폴리시 (기존 style·seo-surface 위 레이어) */
+
+:root {
+  --yw-purple: #5b21b6;
+  --yw-purple-light: #7c3aed;
+  --yw-ink: #0f172a;
+  --yw-radius-card: 20px;
+  --yw-radius-btn: 12px;
+  --yw-tap: 48px;
+  --yw-section-y: clamp(3.75rem, 5.5vw, 5.25rem);
+  --yw-strip-bg: linear-gradient(105deg, #e8ecff 0%, #e0e7ff 42%, #dbeafe 100%);
+  --yw-strip-ink: #1e2a4a;
+  --yw-strip-muted: #475569;
+}
+
+/* ── 메인 HERO: 오버레이·타이포·CTA·스크롤 힌트 ── */
+.page-home .hero {
+  min-height: min(82vh, 800px);
+  padding: 52px 0 72px;
+}
+
+.page-home .hero::before {
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.52) 0%,
+    rgba(30, 27, 75, 0.4) 45%,
+    rgba(15, 23, 42, 0.38) 100%
+  );
+}
+
+.page-home .hero__inner {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-home .hero .page-title--hero {
+  font-size: clamp(42px, 4.9vw, 74px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+}
+
+.page-home .hero .hero-title__em {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.page-home .hero .page-lead--hero {
+  font-size: clamp(0.98rem, 0.32vw + 0.9rem, 1.08rem);
+  line-height: 1.5;
+  max-width: min(100%, 56rem);
+  font-weight: 500;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  margin: 0 auto 20px;
+}
+
+/* 넉넉한 가로(1200px~): KV 메인 제목 1행 */
+@media (min-width: 1200px) {
+  .page-home .hero .page-title--hero {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1350px) {
+  .page-home .hero .page-title--hero {
+    font-size: clamp(38px, 4.1vw, 64px);
+  }
+}
+
+.page-home .hero-kv {
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.btn--hero {
+  min-height: var(--yw-tap);
+  padding: 14px 22px;
+  border-radius: var(--yw-radius-btn);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn--hero-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #7c3aed 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45);
+  border: none;
+  cursor: pointer;
+}
+
+.btn--hero-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(99, 102, 241, 0.5);
+}
+
+.btn--hero-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.btn--hero-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.page-home .hero-search__box {
+  padding: 10px 12px 10px 18px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+}
+
+.page-home .hero-search__input {
+  font-size: 16px;
+  padding: 10px 8px;
+}
+
+.page-home .hero-search__submit {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fff 0%, #f5f3ff 100%);
+  color: var(--yw-purple);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-scroll-hint__icon {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  animation: yw-bounce 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-hint__icon {
+    animation: none;
+  }
+}
+
+@keyframes yw-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.page-home .hero {
+  position: relative;
+}
+
+/* ── 띠 CTA (중간 전환) — 톤 다운, 본문 흐름에 맞게 ── */
+.cta-strip {
+  padding: 16px 0;
+  background: var(--yw-strip-bg);
+  color: var(--yw-strip-ink);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(99, 102, 241, 0.12);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.cta-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 120% at 0% 50%, rgba(99, 102, 241, 0.08), transparent 58%);
+  pointer-events: none;
+}
+
+.cta-strip__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.2vw, 24px);
+}
+
+@media (min-width: 900px) {
+  .cta-strip__inner {
+    flex-wrap: nowrap;
+  }
+}
+
+.cta-strip__title {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: clamp(0.95rem, 0.25vw + 0.9rem, 1.05rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--yw-strip-ink);
+}
+
+@media (min-width: 900px) {
+  .cta-strip__title {
+    white-space: nowrap;
+  }
+}
+
+.cta-strip__btn.btn {
+  min-height: 40px;
+  height: 40px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #4338ca;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: var(--yw-radius-btn);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cta-strip__btn.btn:hover {
+  background: #f8fafc;
+  color: #3730a3;
+  border-color: rgba(99, 102, 241, 0.45);
+  transform: translateY(-1px);
+}
+
+/* ── 섹션 리듬 & 틴트 ── */
+.page-home .features {
+  padding: var(--yw-section-y) 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.page-home .flow,
+.page-home .recommend {
+  padding: var(--yw-section-y) 0;
+}
+
+.page-home .recommend {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 48%, #eef2f7 100%);
+}
+
+/* ── 카드 전역 강화 ── */
+.page-home .card,
+.page-home .recommend-card,
+.page-home .step {
+  border-radius: var(--yw-radius-card);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.page-home .card--feature .card__icon,
+.page-home .recommend-card {
+  will-change: transform;
+}
+
+.page-home .recommend-card {
+  background: #fff;
+  border: 1px solid rgba(199, 210, 254, 0.55);
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+}
+
+.page-home .recommend-card__desc {
+  text-align: center;
+  min-height: 4.35em;
+}
+
+.page-home .recommend-card__btn {
+  margin-top: auto;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 20px;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--yw-radius-btn);
+  width: auto;
+  min-width: 140px;
+  max-width: 100%;
+}
+
+.page-home .step {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+/* 리빌 (common.js로 .is-inview 토글) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── 서브 HERO 통일 (높이·정렬) ── */
+body:not(.page-home) .sub-hero {
+  min-height: min(48vh, 480px);
+  max-height: none;
+  padding: clamp(64px, 8vw, 88px) 0 clamp(56px, 7vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:not(.page-home) .sub-hero__inner {
+  max-width: 1440px;
+  width: 100%;
+}
+
+body:not(.page-home) .sub-hero__title {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+body:not(.page-home) .sub-hero__desc {
+  line-height: 1.65;
+  text-wrap: balance;
+  max-width: 36em;
+}
+
+body:not(.page-home) .sub-hero__actions {
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4px;
+  gap: 10px 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+body:not(.page-home) .sub-hero__actions .btn {
+  min-height: 44px;
+  border-radius: var(--yw-radius-btn);
+  font-size: 0.92rem;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* SEO 읽기 영역 폭 — 1280~1440 대역에서 답답함 완화 */
+.seo-surface > .container {
+  max-width: 1440px;
+}
+
+/* 표: 교차 음영(읽기) */
+.seo-surface .seo-table tbody tr:nth-child(even) td,
+.seo-surface .seo-table tbody tr:nth-child(even) th {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+/* 요약 강조 박스 */
+.seo-pullquote {
+  margin: 0 0 1rem;
+  padding: 16px 18px 16px 20px;
+  border-left: 4px solid #6366f1;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: linear-gradient(90deg, rgba(238, 242, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.75;
+  font-weight: 600;
+}
+
+/* 버튼 전역: 클릭감 + 터치 */
+.btn {
+  min-height: 44px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* sticky 모바일 바 (서브) */
+.yw-msticky {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .yw-msticky {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 400;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 -8px 32px rgba(15, 23, 42, 0.08);
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .yw-msticky .btn {
+    flex: 1;
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  body.has-msticky {
+    padding-bottom: 72px;
+  }
+}
+
+/* 로고 보조 */
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  line-height: 1.15;
+}
+
+.logo-text-sub {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-top: 2px;
+}
+
+/* ── 푸터 신뢰 블록 ── */
+.footer .footer-trust {
+  width: 100%;
+  max-width: none;
+  margin: 8px 0 0;
+  padding: 22px 22px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.45);
+  clear: both;
+  box-sizing: border-box;
+}
+
+.footer-trust__line {
+  margin: 0 0 12px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(248, 250, 252, 0.92);
+}
+
+.footer-trust__line:last-of-type {
+  margin-bottom: 0;
+}
+
+.footer-trust__meta {
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(203, 213, 225, 0.9);
+}

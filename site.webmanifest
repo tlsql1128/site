@@ -1,0 +1,15 @@
+{
+  "name": "청년지갑",
+  "short_name": "청년지갑",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/asset/images/icon/pavicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

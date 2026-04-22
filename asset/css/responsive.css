@@ -16,8 +16,7 @@
     }
 
     .steps {
-        flex-direction: column;
-        align-items: center;
+        gap: 20px;
     }
 
     .footer-content {
@@ -76,8 +75,12 @@
         margin-bottom: 12px;
     }
 
-    .hero-title__line {
-        display: block;
+    .page-title--hero {
+        line-height: 1.25;
+    }
+
+    .hero-title__em {
+        display: inline;
     }
 
     .sub-hero {
@@ -91,12 +94,13 @@
         justify-content: center;
     }
 
-    .hero .page-lead {
+    .hero .page-lead,
+    .page-lead--hero {
         white-space: normal;
         font-size: 14px;
         line-height: 1.65;
         letter-spacing: -0.01em;
-        padding: 0;
+        padding: 0 4px;
     }
 
     .hero-search {
@@ -158,6 +162,13 @@
 
     .recommend-card__desc {
         min-height: 0;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        max-width: min(100%, 440px);
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .footer {
@@ -414,5 +425,46 @@
 
     .notice {
         padding: 60px 0;
+    }
+
+    .hero-scroll-hint {
+        bottom: 14px;
+    }
+
+    .cta-strip {
+        padding: 18px 0;
+    }
+
+    .cta-strip__inner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .cta-strip__title {
+        white-space: normal;
+    }
+
+    .cta-strip__btn.btn {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        height: 44px;
+        min-height: 44px;
+    }
+
+    .seo-hero__lead,
+    .seo-card__prose p,
+    .footer-trust__line {
+        font-size: 15px;
+    }
+
+    .btn.primary,
+    .btn.secondary,
+    .sub-hero .btn {
+        min-height: 48px;
+        padding-top: 14px;
+        padding-bottom: 14px;
     }
 }

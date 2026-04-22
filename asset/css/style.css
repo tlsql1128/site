@@ -18,7 +18,7 @@
     --brand-purple: #7c3aed;
     --accent-mint: rgba(94, 234, 212, 0.35);
     --accent-lavender: rgba(196, 181, 253, 0.4);
-    --subhero-grad: linear-gradient(135deg, #6b8cff 0%, #8b5cf6 52%, #c45dd8 100%);
+    --subhero-grad: linear-gradient(135deg, #7c8fd9 0%, #8b7fd6 48%, #a78bfa 100%);
 }
 
 body {
@@ -69,6 +69,63 @@ body.is-leaving {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* ── 광고 슬롯(카카오) ── */
+.yw-ad {
+    padding: 26px 0;
+}
+
+.yw-ad__inner {
+    display: flex;
+    justify-content: center;
+}
+
+.yw-ad__slot {
+    width: 300px;
+    min-height: 250px;
+}
+
+/* 상단/여백 활용형(섹션에 자연스럽게 녹이기) */
+.yw-ad--tight {
+    padding: 18px 0;
+}
+
+.yw-ad--spacer {
+    padding: 34px 0;
+}
+
+/* 우측(결과 카드 아래) 빈 공간 활용 */
+.ad-side {
+    align-self: start;
+    margin-top: 24px;
+}
+
+@media (min-width: 980px) {
+    /* 2컬럼 그리드 레이아웃에서 우측 컬럼에 붙이기 */
+    .ad-side {
+        grid-column: 2;
+        justify-self: center;
+    }
+
+    .ad-side .yw-ad__inner {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 979px) {
+    /* 모바일/태블릿: 사이드 금지 → 본문 아래 중앙 */
+    .ad-side {
+        grid-column: auto;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .yw-ad__slot {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
 }
 
 /* 앵커 이동 시 헤더에 가리지 않도록 */
@@ -215,7 +272,7 @@ p:last-child {
 .sub-hero__inner {
     position: relative;
     z-index: 1;
-    max-width: 760px;
+    max-width: 1440px;
     margin: 0 auto;
     width: 100%;
     display: flex;
@@ -705,8 +762,8 @@ button.hamburger:focus-visible {
 }
 
 .hero-kv {
-    max-width: min(100%, 980px);
-    margin: 0 auto 28px;
+    max-width: 1440px;
+    margin: 0 auto 24px;
 }
 
 .hero__eyebrow {
@@ -759,7 +816,7 @@ button.hamburger:focus-visible {
 
 /* HERO 통합 검색 */
 .hero-search {
-    max-width: 640px;
+    max-width: min(100%, 860px);
     margin: 0 auto;
 }
 
@@ -773,7 +830,7 @@ button.hamburger:focus-visible {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 8px 8px 16px;
+    padding: 10px 10px 10px 18px;
     background: rgba(255, 255, 255, 0.26);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -802,7 +859,7 @@ button.hamburger:focus-visible {
     border: none;
     background: transparent;
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     outline: none;
     padding: 12px 4px;
 }
@@ -819,8 +876,8 @@ button.hamburger:focus-visible {
 
 .hero-search__submit {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
     border: none;
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.95);
@@ -935,7 +992,7 @@ button.hamburger:focus-visible {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 24px;
-    max-width: 1120px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -968,6 +1025,7 @@ button.hamburger:focus-visible {
     border: 1px solid rgba(199, 210, 254, 0.6);
 }
 
+.card h3,
 .card h4 {
     font-size: 17px;
     margin-bottom: 6px;
@@ -1011,39 +1069,62 @@ button.hamburger:focus-visible {
 
 /* 이용 흐름 */
 .flow {
-    padding: 80px 0;
-    background-color: #f8f9fa;
+    padding: clamp(4rem, 5vw, 5.5rem) 0;
+    background: linear-gradient(180deg, #f1f5f9 0%, #f8fafc 100%);
 }
 
 .steps {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2.4vw, 28px);
+    max-width: 1440px;
+    margin: 0 auto;
+    align-items: stretch;
 }
 
 .step {
     text-align: center;
-    max-width: 300px;
-    margin: 20px;
+    max-width: none;
+    margin: 0;
+    padding: clamp(22px, 2.5vw, 30px) clamp(20px, 2.2vw, 28px) 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
 }
 
 .step-number {
-    display: inline-block;
-    width: 52px;
-    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
     color: white;
     border-radius: 50%;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
-    line-height: 52px;
-    margin-bottom: 20px;
-    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+    line-height: 1;
+    margin: 0 0 16px;
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.28);
+    flex-shrink: 0;
 }
 
+.step h3,
 .step h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+    line-height: 1.35;
+    color: #0f172a;
+}
+
+.step p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+    max-width: 32ch;
 }
 
 /* 추천 기능 */
@@ -1060,7 +1141,7 @@ button.hamburger:focus-visible {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
-    max-width: 1040px;
+    max-width: 1440px;
     margin: 0 auto;
     align-items: stretch;
 }
@@ -1187,7 +1268,7 @@ button.hamburger:focus-visible {
     display: flex;
     gap: 48px;
     align-items: flex-start;
-    max-width: 1120px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -2113,6 +2194,7 @@ button.hamburger:focus-visible {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.compare-item h3,
 .compare-item h4 {
     text-align: center;
     margin-bottom: 20px;

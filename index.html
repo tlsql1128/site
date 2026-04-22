@@ -2,16 +2,61 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="청년지갑 — 미래적금·전월세·대출·연봉 계산을 한곳에서. 청년 금융을 더 쉽게.">
-    <meta property="og:title" content="청년지갑 | 청년 금융·계산 플랫폼">
-    <meta property="og:description" content="미래적금부터 주거·대출·연봉까지, 필요한 계산을 빠르게 확인하세요.">
-    <meta property="og:type" content="website">
     <title>청년지갑 | 청년 금융·계산 플랫폼</title>
+    <!-- ================== 기본 메타 태그 (SEO) ================== -->
+    <meta name="title" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta name="description" content="청년지갑 — 미래적금·전월세·대출·연봉 계산을 한곳에서. 청년 금융을 더 쉽게.">
+    <meta name="keywords" content="청년지갑, 청년, 금융, 계산기, 전월세, 대출, 연봉, 정부지원금">
+    <meta name="author" content="청년지갑">
+    <meta name="robots" content="index, follow">
+
+    <!-- ================== Open Graph 메타 태그 (SNS 공유: Facebook, Kakao 등) ================== -->
+    <meta property="og:title" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta property="og:description" content="청년지갑 — 미래적금·전월세·대출·연봉 계산을 한곳에서. 청년 금융을 더 쉽게.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://youthwallet.netlify.app/">
+    <meta property="og:image" content="https://youthwallet.netlify.app/asset/images/og.webp">
+    <meta property="og:image:secure_url" content="https://youthwallet.netlify.app/asset/images/og.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:alt" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta property="og:site_name" content="청년지갑">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- ================== Twitter 카드 메타 태그 ================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta name="twitter:description" content="청년지갑 — 미래적금·전월세·대출·연봉 계산을 한곳에서. 청년 금융을 더 쉽게.">
+    <meta name="twitter:image" content="https://youthwallet.netlify.app/asset/images/og.webp">
+    <meta name="twitter:image:alt" content="청년지갑 | 청년 금융·계산 플랫폼">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+
+    <!-- ================== SEO 및 사용자 경험 보완 태그 ================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="ko">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://youthwallet.netlify.app/">
+
+    <!-- ================== 웹앱 및 브라우저 최적화 ================== -->
+    <meta name="theme-color" content="#5b21b6">
+    <meta name="application-name" content="청년지갑">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="청년지갑">
+
+    <!-- ================== 아이콘 및 리소스 링크 ================== -->
     <link rel="icon" href="asset/images/icon/pavicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="asset/images/icon/pavicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/asset/images/icon/pavicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="asset/css/responsive.css">
+    <link rel="stylesheet" href="asset/css/seo-surface.css">
+    <link rel="stylesheet" href="asset/css/brand-v2.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="asset/js/common.js"></script>
     <script src="asset/js/home.js" defer></script>
@@ -19,16 +64,27 @@
 <body class="page-home">
     <div id="header"></div>
 
+    <a class="skip-to-main" href="#main-content">본문으로 건너가기</a>
+
+    <div class="seo-breadcrumb" aria-label="이 페이지 위치">
+        <div class="seo-breadcrumb__inner">
+            <nav class="seo-breadcrumb__nav" aria-label="breadcrumb">
+                <ol>
+                    <li><a href="index.html" title="청년지갑 홈">홈</a> <span class="seo-breadcrumb__sep" aria-hidden="true">›</span></li>
+                    <li><span class="seo-breadcrumb__current" aria-current="page">청년 금융·계산 플랫폼</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <main id="main-content" class="page-main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
         <div class="hero__bg" aria-hidden="true"></div>
         <div class="container hero__inner">
             <div class="hero-kv">
                 <p class="hero__eyebrow">청년지갑 · Youth Wallet</p>
-                <h2 id="hero-title" class="page-title">
-                    <span class="hero-title__line">청년의 금융 고민,</span>
-                    <span class="hero-title__line hero-title__line--strong">청년지갑 하나로</span>
-                </h2>
-                <p class="page-lead">전월세·대출·연봉·미래적금까지, 청년에게 꼭 필요한 금융 계산을 한곳에서 쉽고 빠르게 확인하세요.</p>
+                <h1 id="hero-title" class="page-title page-title--hero">청년 금융·계산 플랫폼 <span class="hero-title__em">청년지갑</span></h1>
+                <p class="page-lead page-lead--hero">전·월세, 대출, 연봉, 미래적금 — 청년에 필요한 금융계산을 한곳에서</p>
             </div>
 
             <div class="hero-search" role="search">
@@ -64,108 +120,344 @@
                 <p id="hero-search-feedback" class="hero-search__feedback" role="status" aria-live="polite"></p>
 
                 <div class="hero-chips" aria-label="추천 검색 키워드">
-                    <button type="button" class="hero-chip" data-href="subpage/youth-savings.html">#미래적금</button>
-                    <button type="button" class="hero-chip" data-href="subpage/rent.html">#전월세</button>
-                    <button type="button" class="hero-chip" data-href="subpage/loan.html">#대출</button>
-                    <button type="button" class="hero-chip" data-href="subpage/salary.html">#연봉</button>
-                    <button type="button" class="hero-chip" data-href="subpage/support.html">#정부지원금</button>
-                    <button type="button" class="hero-chip" data-href="subpage/faq.html">#FAQ</button>
+                    <button type="button" class="hero-chip" data-href="subpage/youth-savings.html" aria-label="미래적금 계산기 페이지로 이동">#미래적금</button>
+                    <button type="button" class="hero-chip" data-href="subpage/rent.html" aria-label="전월세 계산기 페이지로 이동">#전월세</button>
+                    <button type="button" class="hero-chip" data-href="subpage/loan.html" aria-label="대출 계산기 페이지로 이동">#대출</button>
+                    <button type="button" class="hero-chip" data-href="subpage/salary.html" aria-label="연봉 실수령액 계산기 페이지로 이동">#연봉</button>
+                    <button type="button" class="hero-chip" data-href="subpage/support.html" aria-label="정부지원금 찾기 페이지로 이동">#정부지원금</button>
+                    <button type="button" class="hero-chip" data-href="subpage/faq.html" aria-label="자주 묻는 질문으로 이동">#FAQ</button>
                 </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span class="hero-scroll-hint__text">스크롤</span>
+            <span class="hero-scroll-hint__icon" aria-hidden="true">↓</span>
+        </div>
+    </section>
+
+    <section class="yw-ad yw-ad--tight" aria-label="광고">
+        <div class="container yw-ad__inner">
+            <div class="yw-ad__slot">
+<ins class="kakao_ad_area" style="display:none;" 
+data-ad-unit = "DAN-99ND6dOnbG8MGeJ3"
+data-ad-width = "300"
+data-ad-height = "250"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
             </div>
         </div>
     </section>
 
-    <section class="features">
+
+    
+
+
+    <section id="section-picks" class="seo-surface seo-surface--tight" aria-labelledby="picks-title">
+        <div class="container">
+            <div class="seo-hero">
+                <div>
+                    <h2 id="picks-title" class="seo-hero__title">지금 가장 많이 찾는 청년 금융 계산</h2>
+                    <p class="seo-hero__lead">월급이 생긴 뒤로 결정이 빨라집니다. 집(전·월세), 대출, 세금(실수령), 목표 저축까지—숫자로 먼저 ‘감’을 잡고, 그 다음에 상품·정책을 고르면 실수가 확 줄어요.</p>
+                </div>
+                <div class="seo-kpi" aria-label="빠른 이해를 위한 핵심 지표(참고)">
+                    <div class="seo-kpi__item">
+                        <span class="seo-kpi__k">의사결정</span>
+                        <span class="seo-kpi__v">3분면</span>
+                        <span class="seo-kpi__s">고정비(주거) · 부채(대출) · 현금흐름(실수령)만 잡혀도 재무가 정리됩니다.</span>
+                    </div>
+                    <div class="seo-kpi__item">
+                        <span class="seo-kpi__k">우선순위</span>
+                        <span class="seo-kpi__v">생활 안정</span>
+                        <span class="seo-kpi__s">비상금·주거비·보장(필수 보험)을 먼저 확보한 뒤, 목돈/투자를 늘리는 흐름이 안전합니다.</span>
+                    </div>
+                    <div class="seo-kpi__item">
+                        <span class="seo-kpi__k">다음 한 걸음</span>
+                        <span class="seo-kpi__v">내부 링크</span>
+                        <span class="seo-kpi__s">아래 카드에서 관련 가이드로 이동해, 계산과 설명을 같이 읽으면 체류가 길어지고 이해도가 높아집니다.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-grid">
+                <section class="seo-card" aria-label="빠른 내부 링크 모음(청년지갑)">
+                    <h3 class="seo-card__title">청년 재무에서 자주 엮이는 6가지</h3>
+                    <div class="seo-badges" aria-label="대표 키워드">
+                        <span class="seo-badge">전월세</span>
+                        <span class="seo-badge">대출/상환</span>
+                        <span class="seo-badge">실수령액</span>
+                        <span class="seo-badge">목표 저축</span>
+                    </div>
+                    <ul class="seo-list seo-list--check">
+                        <li><a href="subpage/rent.html" title="전세·월세, 월 주거비(관리비 포함) 비교">전월세(주거비) 비교</a> — 같은 예산인데 ‘월 현금흐름’이 달라질 수 있어요.</li>
+                        <li><a href="subpage/loan.html" title="상환 방식(원리금)과 이자 총액 이해">대출(원리금) 상환</a> — 금리 0.1%p도 기간이 길면 누적이 커집니다.</li>
+                        <li><a href="subpage/salary.html" title="4대보험·감면 전 실수령의 기준">연봉 실수령액(공제)</a> — 예산·저축의 출발선을 맞춥니다.</li>
+                        <li><a href="subpage/goal-100m.html" title="기간/저축액/수익률 가정(참고)">1억 만들기(목표)</a> — ‘언제쯤?’을 몇 가지로 나눠보며 현실감을 잡아요.</li>
+                        <li><a href="subpage/youth-savings.html" title="가입·정책 혜택(참고) + 만기 시뮬">청년미래적금(정책형 저축)</a> — 조건/기간에 따라 결과가 달라질 수 있어요.</li>
+                        <li><a href="subpage/calendar.html" title="접수·마감을 한눈에(캘린더)">지원·정책 일정(캘린더)</a> — ‘놓침’이 비용이 되기 쉬워요.</li>
+                    </ul>
+                </section>
+
+                <aside class="seo-aside" aria-label="빠른 FAQ(질문형)">
+                    <div class="seo-toc">
+                        <h3>이런 질문부터 읽는 사람이 많아요</h3>
+                        <ul class="seo-toc__list">
+                            <li><a href="#section-story" title="이 페이지 하단: 체계적인 설명">월급이 작아도, 어디부터 잡을까요?</a></li>
+                            <li><a href="subpage/planner.html" title="50:30:20, 고정비 상한 등 루틴">체크리스트로 월급을 쪼개는 방법(플래너)</a></li>
+                            <li><a href="subpage/credit.html" title="대출/카드의 전제: 신용·대출 능력">신용/대출, 왜 ‘나중’이 아니라 ‘먼저’인가요?</a></li>
+                        </ul>
+                    </div>
+                    <div class="seo-related" style="margin-top: 12px;">
+                        <h3>관련 가이드(읽을거리)</h3>
+                        <ul class="seo-related__list">
+                            <li><a href="subpage/guide.html" title="기본을 정리한 입문">청년 재테크 입문 가이드</a></li>
+                            <li><a href="subpage/insurance.html" title="필수·우선순위 관점">청년 보험 입문(우선순위)</a></li>
+                            <li><a href="subpage/faq.html" title="서비스 전체 FAQ">전체 FAQ</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="section-features" aria-labelledby="features-title">
         <div class="container">
             <div class="section-head">
-                <h2 class="section-title">주요 기능</h2>
+                <h2 id="features-title" class="section-title">주요 기능</h2>
                 <p class="section-desc">이 사이트에서 제공하는 대표 서비스입니다.</p>
             </div>
             <div class="feature-cards">
-                <div class="card card--feature">
+                <div class="card card--feature reveal" data-reveal>
                     <span class="card__icon" aria-hidden="true">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M6 9h12M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                     </span>
-                    <h4><a href="subpage/youth-savings.html" class="card-title-link">청년 미래적금 계산기</a></h4>
+                    <h3><a href="subpage/youth-savings.html" class="card-title-link" title="정부지원(참고)과 이자(가정)을 포함한 만기 시뮬레이터">청년 미래적금 계산기</a></h3>
                     <p class="card__desc">정부지원 포함 예상 수령액 계산</p>
                 </div>
-                <div class="card card--feature">
+                <div class="card card--feature reveal" data-reveal>
                     <span class="card__icon" aria-hidden="true">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 10h16v10H4V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                     </span>
-                    <h4><a href="subpage/rent.html" class="card-title-link">청년 전월세 계산기</a></h4>
+                    <h3><a href="subpage/rent.html" class="card-title-link" title="보증금·월세·관리비 기준(참고)으로 월 지출을 비교">청년 전월세 계산기</a></h3>
                     <p class="card__desc">예산 기준 전세·월세 비교 계산</p>
                 </div>
-                <div class="card card--feature">
+                <div class="card card--feature reveal" data-reveal>
                     <span class="card__icon" aria-hidden="true">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                     </span>
-                    <h4><a href="subpage/loan.html" class="card-title-link">청년 대출 계산기</a></h4>
+                    <h3><a href="subpage/loan.html" class="card-title-link" title="상환액(원리금)과 총 이자(참고) 확인">청년 대출 계산기</a></h3>
                     <p class="card__desc">월 상환금과 총 이자 확인</p>
                 </div>
-                <div class="card card--feature">
+                <div class="card card--feature reveal" data-reveal>
                     <span class="card__icon" aria-hidden="true">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M8 9h8M8 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                     </span>
-                    <h4><a href="subpage/salary.html" class="card-title-link">연봉 실수령액 계산기</a></h4>
+                    <h3><a href="subpage/salary.html" class="card-title-link" title="4대보험·감면을 반영한 ‘월 실수령’(참고)">연봉 실수령액 계산기</a></h3>
                     <p class="card__desc">월 실수령액과 공제액 확인</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="flow">
+    <section class="cta-strip" aria-label="빠른 전환">
+        <div class="container cta-strip__inner">
+            <p class="cta-strip__title">이번 달 흐름을 잡으려면, 먼저 실수령(세후)을 확인해 보세요.</p>
+            <a class="btn cta-strip__btn" href="subpage/salary.html" title="연봉·공제(참고) — 실수령 계산">실수령액 무료로 확인</a>
+        </div>
+    </section>
+
+    <section class="yw-ad yw-ad--spacer" aria-label="광고">
+        <div class="container yw-ad__inner">
+            <div class="yw-ad__slot">
+<ins class="kakao_ad_area" style="display:none;" 
+data-ad-unit = "DAN-99ND6dOnbG8MGeJ3"
+data-ad-width = "300"
+data-ad-height = "250"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="flow" id="section-how" aria-labelledby="flow-title">
         <div class="container">
             <div class="section-head">
-                <h2 class="section-title">이용 방법</h2>
+                <h2 id="flow-title" class="section-title">이용 방법</h2>
                 <p class="section-desc">메뉴를 따라 세 단계로 이용할 수 있습니다.</p>
             </div>
             <div class="steps">
-                <div class="step">
+                <div class="step reveal" data-reveal>
                     <span class="step-number">1</span>
-                    <h4>원하는 기능 선택</h4>
+                    <h3>원하는 기능 선택</h3>
                     <p>메뉴에서 필요한 기능을 선택하세요.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal" data-reveal>
                     <span class="step-number">2</span>
-                    <h4>정보 입력</h4>
+                    <h3>정보 입력</h3>
                     <p>필요한 정보를 입력하거나 선택하세요.</p>
                 </div>
-                <div class="step">
+                <div class="step reveal" data-reveal>
                     <span class="step-number">3</span>
-                    <h4>결과 확인</h4>
+                    <h3>결과 확인</h3>
                     <p>계산 결과나 안내를 확인하세요.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="recommend">
+    <section class="recommend" id="section-recommend" aria-labelledby="recommend-title">
         <div class="container">
             <div class="section-head">
-                <h2 class="section-title">추천 기능</h2>
+                <h2 id="recommend-title" class="section-title">추천 기능</h2>
                 <p class="section-desc">자주 찾는 계산기로 바로 이동해 보세요.</p>
             </div>
             <div class="recommend-grid">
-                <article class="recommend-card">
+                <article class="recommend-card reveal" data-reveal>
                     <h3 class="recommend-card__title">청년 미래적금 계산기</h3>
                     <p class="recommend-card__desc">3년 만기 기준으로 정부 지원금과 이자를 포함한 예상 수령액을 계산해 보세요.</p>
-                    <a href="subpage/youth-savings.html" class="btn primary recommend-card__btn">바로가기</a>
+                    <a href="subpage/youth-savings.html" class="btn primary recommend-card__btn" title="정책형 저축(참고) + 만기 시뮬레이터로 이동">바로가기</a>
                 </article>
-                <article class="recommend-card">
+                <article class="recommend-card reveal" data-reveal>
                     <h3 class="recommend-card__title">청년 전월세 계산기</h3>
                     <p class="recommend-card__desc">현재 예산으로 전세와 월세 중 어떤 선택이 더 유리한지 비교해 보세요.</p>
-                    <a href="subpage/rent.html" class="btn primary recommend-card__btn">바로가기</a>
+                    <a href="subpage/rent.html" class="btn primary recommend-card__btn" title="전세·월세(월 고정비) 비교로 이동">바로가기</a>
                 </article>
-                <article class="recommend-card">
+                <article class="recommend-card reveal" data-reveal>
                     <h3 class="recommend-card__title">청년 대출 계산기</h3>
                     <p class="recommend-card__desc">대출금액, 금리, 상환기간을 입력하고 월 납입금을 미리 계산해 보세요.</p>
-                    <a href="subpage/loan.html" class="btn primary recommend-card__btn">바로가기</a>
+                    <a href="subpage/loan.html" class="btn primary recommend-card__btn" title="원리금 상환(이자·기간) 시뮬레이터로 이동">바로가기</a>
                 </article>
             </div>
         </div>
     </section>
 
-    <div id="footer"></div>
+    
+
+    <section class="yw-ad yw-ad--tight" aria-label="광고">
+        <div class="container yw-ad__inner">
+            <div class="yw-ad__slot">
+<ins class="kakao_ad_area" style="display:none;" 
+data-ad-unit = "DAN-99ND6dOnbG8MGeJ3"
+data-ad-width = "300"
+data-ad-height = "250"></ins>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            </div>
+        </div>
+    </section>
+<section id="section-story" class="seo-surface" aria-labelledby="story-title">
+        <div class="container">
+            <h2 id="story-title" class="seo-hero__title">왜 ‘계산’인가요? 청년지갑이 목표로 하는 사용법</h2>
+            <p class="seo-hero__lead" style="margin: 0 0 10px;">금융은 감정의 영역이기도 합니다. 하지만 청년기의 큰 결정(이사, 차, 대출, 이직)은 대부분 숫자의 차이로 나타납니다.</p>
+            <p class="seo-hero__lead" style="margin: 0 0 16px;">청년지갑은 상품을 대신 추천한다기보다, <strong>의사결정에 필요한 숫자(월 현금흐름, 총이자, 실수령, 목표기간)</strong>를 먼저 잡는 데 집중합니다.</p>
+            <p class="seo-pullquote" role="note">핵심은 한 가지입니다. <strong>감(느낌)만으로 ‘가능/불가능’을 나누지 말고, 통장·납부·상환 흐름에 맞는지</strong>를 숫자로 먼저 점검하세요(참고).</p>
+
+            <div class="seo-grid">
+                <article class="seo-card" aria-label="핵심 콘텐츠(청년 금융)">
+                    <h3 class="seo-card__title">사회초년생이 가장 먼저 흔들리는 3가지(체크리스트)</h3>
+                    <div class="seo-card__prose">
+                        <p>첫 월급이 들어오면 ‘저축’이 답인 것 같지만, 먼저 흔들리는 곳은 보통 주거·대출·일상의 고정비입니다. 고정비가 흔들리면 자동이체만으로도 생활이 무너지기 쉬워서, “얼마를 모으지?”보다 <strong>얼마가 남는지</strong>를 먼저 확인하는 편이 빠릅니다.</p>
+                        <p>청년지갑의 계산기는 서로를 연결해 읽는 설계를 염두에 둡니다. 예를 들어 전월세(월 고정)와 대출(이자)은 현금흐름에 동시에 영향을 주고, 실수령(공제)은 그 상한선을 정합니다. 그래서 한 페이지에만 머무르지 말고, <a href="subpage/salary.html" title="공제(참고)의 기준: 실수령">실수령</a> → <a href="subpage/rent.html" title="월 고정비의 큰 덩어리: 주거">전월세</a> → <a href="subpage/loan.html" title="부채(대출)가 만드는 월 이자(참고)">대출</a>처럼 내부 링크로 이동해보는 흐름이 체류시간과 이해도를 같이 올려줍니다.</p>
+                    </div>
+
+                    <h3 class="seo-card__title" style="margin-top: 14px;">50:30:20(참고) — 비율이 아니라 ‘순서’로 이해해 보세요</h3>
+                    <div class="seo-card__prose">
+                        <p>50:30:20을 그대로 복붙하라는 뜻이 아닙니다. “필수/선택/저축”을 <strong>우선순위로</strong> 바꿔 쓰는 용도로 쓰면, 월급이 바뀌거나 이사/대출이 생겨도 예산을 다시 잡기 쉬워집니다. 이때 필수(주거)와 부채(대출)는 숨은 고정지출이라서, <a href="subpage/planner.html" title="월급 쪼개기(플래너)">월급 관리 플래너</a>의 체크리스트와 같이 쓰면 “내 비율”을 잡는 데 도움이 됩니다.</p>
+                    </div>
+
+                    <h3 class="seo-card__title" style="margin-top: 14px;">질문형으로 읽는 FAQ(이 페이지 기준)</h3>
+                    <div class="accordion seo-accordion" aria-label="이 페이지에서 자주 나오는 질문">
+                        <div class="accordion-item">
+                            <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 이 사이트의 계산 결과는 100% 맞나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                            <div class="accordion-content">
+                                <p>A. 아니요. 대부분의 화면은 <strong>참고용</strong>이며, 실제 금리/세율/지원요건/상품 약관은 시점·기관·개인 상황에 따라 달라질 수 있어요. 다만, 결정의 전 단계로 “대략의 크기”를 빠르게 잡는 데는 유효합니다.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. ‘정책/지원’은 어디서 같이 봐야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                            <div class="accordion-content">
+                                <p>A. 지원의 마감·자격·지역 조건이 중요해서, <a href="subpage/calendar.html" title="캘린더(일정)로 이동">캘린더</a>와 <a href="subpage/support.html" title="키워드(검색)로 이동">지원금 찾기</a>를 병행하는 편이 좋아요. 계산(현금흐름)과 일정(접수)은 서로 보완 관계입니다.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">Q. 투자/재테크 공부는 어디서 시작할까요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                            <div class="accordion-content">
+                                <p>A. 용어와 흐름이 익숙해지는 단계는 <a href="subpage/guide.html" title="용어/기초: 재테크 가이드">입문 가이드</a>, 리스크를 줄이는 생활 설계는 <a href="subpage/insurance.html" title="보장의 기본(입문)">보험 입문</a> 쪽이 부담이 덜한 편이에요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="seo-aside" aria-label="빠른 액션(CTA)">
+                    <div class="seo-cta">
+                        <div>
+                            <p class="seo-cta__text">3분만 투자해 ‘내 월 현금흐름’을 완성해 보세요</p>
+                            <p class="seo-cta__sub">1) <a href="subpage/salary.html" title="월 실수령(참고)">실수령</a> → 2) <a href="subpage/rent.html" title="주거비(고정)">전월세</a> → 3) <a href="subpage/loan.html" title="부채(이자)">대출</a> 순서가 가장 흔한 루트입니다.</p>
+                        </div>
+                        <a class="btn primary" href="subpage/salary.html" title="첫 화면을 실수령(공제) 계산기로">실수령액 계산기로 시작</a>
+                    </div>
+
+                    <div class="seo-related" style="margin-top: 12px;">
+                        <h3>추가로 읽는 글(가이드)</h3>
+                        <ul class="seo-related__list">
+                            <li><a href="subpage/credit.html" title="대출/카드의 전제: 신용·대출 능력">신용점수(생활습관) 관리</a></li>
+                            <li><a href="subpage/living-cost.html" title="고정/변동비 정리(자취)">자취 생활비(고정/변동)</a></li>
+                            <li><a href="subpage/usedcar.html" title="취득/할부/보험(참고)">중고차(총소유비) 예산</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="seo-table-wrap" style="margin-top: 14px;">
+                <table class="seo-table">
+                    <caption>청년 재무 ‘기본 4문장(참고)’ — 이 문장이 선명해지면 계산기 해석이 쉬워집니다.</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">영역</th>
+                            <th scope="col">질문(자연어)</th>
+                            <th scope="col">청년지갑에서의 연결</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">소득</th>
+                            <td>‘연봉 3,000’이 ‘통장 220’이 되는 이유는?</td>
+                            <td><a href="subpage/salary.html" title="4대보험·감면(참고)">실수령액 계산기</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">주거</th>
+                            <td>같은 예산인데 전세/월세 중 월납이 적은 쪽이 항상 이득일까?</td>
+                            <td><a href="subpage/rent.html" title="월 주거비(참고) 비교">전월세 계산기</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">부채</th>
+                            <td>금리/기간/상환액, 무엇을 먼저 보면 덜 후회할까?</td>
+                            <td><a href="subpage/loan.html" title="이자(참고)와 상환(참고)">대출 계산기</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">목표</th>
+                            <td>1억이 ‘언제’가 아니라 ‘얼마씩/얼마나’의 문제로 바뀌려면?</td>
+                            <td><a href="subpage/goal-100m.html" title="기간-저축(참고)">1억 만들기</a> + <a href="subpage/youth-savings.html" title="기간(참고)">미래적금</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-home-notice" class="seo-surface" aria-labelledby="home-notice-title">
+        <div class="container">
+            <h2 id="home-notice-title" class="seo-hero__title">이용 전에 꼭 읽어주세요(운영 안내)</h2>
+            <div class="seo-card">
+                <div class="seo-card__prose">
+                    <p>청년지갑은 다양한 금융 상품/정책을 <strong>대리 추천</strong>하거나, 특정 수치를 <strong>보장</strong>하지 않습니다. 대신, 사용자의 입력값(예산/금리/기간/가정)에 따라 <strong>참고용 결과</strong>를 빠르게 보여주는 데 초점이 있습니다. 따라서 실제 약정·접수·지급/세액/고시는 항상 공식 경로(금융기관, 정부/지자체 공고, 국세청 안내)를 기준으로 확인하세요.</p>
+                    <p>또한, 각 문서(페이지)는 검색/사용자 이해를 돕기 위해 <strong>질문형 제목(자연어) + 목록(절차) + 짧은 사례</strong>를 섞는 방식을 사용합니다. 한 페이지만 읽고 결정을 내리기보다, 내부 링크로 이웃한 주제(주거-부채-소득)를 함께 읽는 편이 실제 생활에서의 “현실감”이 높아집니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    
+
+    
+<div id="footer"></div>
 </body>
 </html>
