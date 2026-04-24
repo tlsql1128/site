@@ -1,0 +1,9 @@
+# 청년지갑 — 크롤러 안내 (https://youthwallet.netlify.app)
+User-agent: *
+Allow: /
+
+# 내부/개발용 도구 페이지는 색인 제외
+Disallow: /tools/
+
+# 사이트맵 (Search Console 제출과 함께 사용)
+Sitemap: https://youthwallet.netlify.app/sitemap.xml

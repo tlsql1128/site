@@ -34,6 +34,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .page-home .hero .page-title--hero {

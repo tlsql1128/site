@@ -69,6 +69,7 @@ body.is-leaving {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+    min-width: 0;
 }
 
 /* ── 광고 공통 래퍼(카카오) — 구조/여백/정렬 안정화 ── */
@@ -895,8 +896,11 @@ button.hamburger:focus-visible {
 
 /* HERO 통합 검색 */
 .hero-search {
+    width: 100%;
     max-width: min(100%, 860px);
+    min-width: 0;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .hero-search__form {
@@ -1037,6 +1041,8 @@ button.hamburger:focus-visible {
     justify-content: center;
     gap: 10px;
     margin-top: 22px;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .hero-chip {

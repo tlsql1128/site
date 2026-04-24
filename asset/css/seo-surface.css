@@ -17,6 +17,8 @@ body {
 
 .page-main {
   flex: 1 0 auto;
+  min-width: 0;
+  width: 100%;
 }
 
 .skip-to-main {
@@ -515,6 +517,8 @@ body {
 /* 표(캡션 스타일 보조) */
 .seo-table-wrap {
   margin-top: 18px;
+  max-width: 100%;
+  min-width: 0;
   overflow: auto;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(15, 23, 42, 0.08);

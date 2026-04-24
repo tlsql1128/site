@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../asset/js/common.js"></script>
     <script src="../asset/js/rent.js" defer></script>
+    <meta name="msvalidate.01" content="E6215BF640A93656B4D5FA31B9FD09C9" />
+    <meta name="google-site-verification" content="L0Yd3UndC3FFmyRzpQulejjMtOoveX-DvcCbMak5omU" />
+    <meta name="naver-site-verification" content="80ad64017b276738f00cec2f154d7820eab2effb" />
 </head>
+
 <body>
     <div id="header"></div>
 
@@ -46,10 +51,13 @@
                     <div class="rent-field">
                         <label class="rent-label" for="budget-input">현재 보유 예산 (보증금 가능 금액)</label>
                         <div class="rent-budget-row">
-                            <input type="text" inputmode="numeric" id="budget-input" class="rent-input rent-input--money" value="50000000" autocomplete="off" aria-describedby="budget-hint">
+                            <input type="text" inputmode="numeric" id="budget-input"
+                                class="rent-input rent-input--money" value="50000000" autocomplete="off"
+                                aria-describedby="budget-hint">
                             <span class="rent-unit">원</span>
                         </div>
-                        <input type="range" id="budget-slider" class="rent-slider" min="10000000" max="100000000" value="50000000" step="1000000" aria-label="보증금 예산 슬라이더">
+                        <input type="range" id="budget-slider" class="rent-slider" min="10000000" max="100000000"
+                            value="50000000" step="1000000" aria-label="보증금 예산 슬라이더">
                         <div class="rent-slider-ticks"><span>1천만 원</span><span>1억 원</span></div>
                         <p id="budget-hint" class="rent-hint">1천만 원 ~ 1억 원 범위(천만 원 단위)</p>
                     </div>
@@ -68,7 +76,8 @@
                     <div class="rent-field">
                         <label class="rent-label" for="income-input">월 소득</label>
                         <div class="rent-budget-row">
-                            <input type="text" inputmode="numeric" id="income-input" class="rent-input rent-input--money" value="3500000" autocomplete="off">
+                            <input type="text" inputmode="numeric" id="income-input"
+                                class="rent-input rent-input--money" value="3500000" autocomplete="off">
                             <span class="rent-unit">원</span>
                         </div>
                     </div>
@@ -81,7 +90,8 @@
                             <button type="button" class="rent-preset" data-won="700000">70만 원</button>
                         </div>
                         <div class="rent-budget-row">
-                            <input type="text" inputmode="numeric" id="monthly-rent-input" class="rent-input rent-input--money" value="500000" autocomplete="off">
+                            <input type="text" inputmode="numeric" id="monthly-rent-input"
+                                class="rent-input rent-input--money" value="500000" autocomplete="off">
                             <span class="rent-unit">원</span>
                         </div>
                     </div>
@@ -89,7 +99,8 @@
                     <div class="rent-field">
                         <label class="rent-label" for="maint-input">관리비 예상 (월)</label>
                         <div class="rent-budget-row">
-                            <input type="text" inputmode="numeric" id="maint-input" class="rent-input rent-input--money" value="100000" autocomplete="off">
+                            <input type="text" inputmode="numeric" id="maint-input" class="rent-input rent-input--money"
+                                value="100000" autocomplete="off">
                             <span class="rent-unit">원</span>
                         </div>
                     </div>
@@ -99,7 +110,8 @@
                         <div class="rent-period" role="group">
                             <label class="rent-period-btn"><input type="radio" name="stay-years" value="1"> 1년</label>
                             <label class="rent-period-btn"><input type="radio" name="stay-years" value="2"> 2년</label>
-                            <label class="rent-period-btn"><input type="radio" name="stay-years" value="4" checked> 4년</label>
+                            <label class="rent-period-btn"><input type="radio" name="stay-years" value="4" checked>
+                                4년</label>
                         </div>
                     </div>
 
@@ -114,11 +126,13 @@
 
                     <div class="rent-field rent-field--loan disabled" id="loan-rate-wrap">
                         <label class="rent-label" for="loan-rate-input">대출 금리 (%)</label>
-                        <input type="number" id="loan-rate-input" class="rent-input" min="0" max="20" step="0.1" value="4.5" disabled>
+                        <input type="number" id="loan-rate-input" class="rent-input" min="0" max="20" step="0.1"
+                            value="4.5" disabled>
                     </div>
 
                     <p class="rent-error" id="rent-error" role="alert"></p>
-                    <button type="button" class="rent-btn rent-btn--primary rent-btn--block" id="btn-calculate">계산하기</button>
+                    <button type="button" class="rent-btn rent-btn--primary rent-btn--block"
+                        id="btn-calculate">계산하기</button>
                 </div>
 
                 <!-- 결과 -->
@@ -135,7 +149,8 @@
 
                     <div class="rent-result-block">
                         <h3 class="rent-result__label">월세 선택 시 월 주거비</h3>
-                        <p class="rent-result__big"><span id="result-monthly-total" data-target="0">0</span><span class="rent-won">원</span></p>
+                        <p class="rent-result__big"><span id="result-monthly-total" data-target="0">0</span><span
+                                class="rent-won">원</span></p>
                         <p class="rent-result__sub">월세 + 관리비 합계</p>
                     </div>
 
@@ -151,9 +166,12 @@
                     <div class="rent-result-block">
                         <h3 class="rent-result__label">전세 측면 예상 비용 (기회비용·대출이자 포함, 참고)</h3>
                         <ul class="rent-total-list">
-                            <li><span>1년</span><strong><span id="total-jeonse-1y" data-target="0">0</span> 원</strong></li>
-                            <li><span>2년</span><strong><span id="total-jeonse-2y" data-target="0">0</span> 원</strong></li>
-                            <li><span>4년</span><strong><span id="total-jeonse-4y" data-target="0">0</span> 원</strong></li>
+                            <li><span>1년</span><strong><span id="total-jeonse-1y" data-target="0">0</span> 원</strong>
+                            </li>
+                            <li><span>2년</span><strong><span id="total-jeonse-2y" data-target="0">0</span> 원</strong>
+                            </li>
+                            <li><span>4년</span><strong><span id="total-jeonse-4y" data-target="0">0</span> 원</strong>
+                            </li>
                         </ul>
                     </div>
 
@@ -170,15 +188,18 @@
                 <p class="rent-chart__desc">월세 총액 vs 전세 관련 예상 비용(기회비용·이자). 단위: 만 원.</p>
                 <div class="rent-bars" id="rent-bars">
                     <div class="rent-bar-wrap">
-                        <div class="rent-bar" id="bar-rent" style="--h:0%"><span class="rent-bar__val" id="bar-rent-label">0</span></div>
+                        <div class="rent-bar" id="bar-rent" style="--h:0%"><span class="rent-bar__val"
+                                id="bar-rent-label">0</span></div>
                         <span class="rent-bar__name">월세 총비용</span>
                     </div>
                     <div class="rent-bar-wrap">
-                        <div class="rent-bar rent-bar--jeonse" id="bar-jeonse" style="--h:0%"><span class="rent-bar__val" id="bar-jeonse-label">0</span></div>
+                        <div class="rent-bar rent-bar--jeonse" id="bar-jeonse" style="--h:0%"><span
+                                class="rent-bar__val" id="bar-jeonse-label">0</span></div>
                         <span class="rent-bar__name">전세 관련 비용</span>
                     </div>
                     <div class="rent-bar-wrap">
-                        <div class="rent-bar rent-bar--loan" id="bar-loan" style="--h:0%"><span class="rent-bar__val" id="bar-loan-label">0</span></div>
+                        <div class="rent-bar rent-bar--loan" id="bar-loan" style="--h:0%"><span class="rent-bar__val"
+                                id="bar-loan-label">0</span></div>
                         <span class="rent-bar__name">대출이자(추가)</span>
                     </div>
                 </div>
@@ -275,25 +296,46 @@
             </div>
             <div class="accordion">
                 <div class="accordion-item">
-                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">전세가 무조건 유리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <button type="button" class="accordion-header" aria-expanded="false"><span
+                            class="accordion-header__label">전세가 무조건 유리한가요?</span><span class="accordion-header__chevron"
+                            aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span></button>
                     <div class="accordion-content">
                         <p>아닙니다. 보증금 물림, 대출 이자, 이사 비용 등을 함께 봐야 합니다. 본 도구는 입력값 기준 참고 비교입니다.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">월세는 얼마나 부담되나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <button type="button" class="accordion-header" aria-expanded="false"><span
+                            class="accordion-header__label">월세는 얼마나 부담되나요?</span><span class="accordion-header__chevron"
+                            aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span></button>
                     <div class="accordion-content">
                         <p>월세와 관리비를 합친 금액이 월 소득에서 차지하는 비율이 중요합니다. 통상 30% 미만을 권장하는 경우가 많습니다.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">청년 대출을 같이 쓰면 유리한가요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <button type="button" class="accordion-header" aria-expanded="false"><span
+                            class="accordion-header__label">청년 대출을 같이 쓰면 유리한가요?</span><span
+                            class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22"
+                                viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span></button>
                     <div class="accordion-content">
                         <p>금리·한도·상환 방식에 따라 달라집니다. 정책자금은 조건이 좋은 경우가 많으나, 중도 상환 수수료 등을 확인하세요.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button type="button" class="accordion-header" aria-expanded="false"><span class="accordion-header__label">관리비도 포함해야 하나요?</span><span class="accordion-header__chevron" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+                    <button type="button" class="accordion-header" aria-expanded="false"><span
+                            class="accordion-header__label">관리비도 포함해야 하나요?</span><span class="accordion-header__chevron"
+                            aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg></span></button>
                     <div class="accordion-content">
                         <p>실제 주거비는 관리비·공과금·인터넷 등이 추가됩니다. 여기서는 관리비 입력값을 월 부담에 포함합니다.</p>
                     </div>
@@ -305,10 +347,12 @@
     <!-- 유의사항 -->
     <section id="section-notice" class="rent-notice">
         <div class="container">
-            <p class="rent-notice__text">본 페이지의 계산 결과는 참고용 시뮬레이션이며, 실제 전세·월세 계약, 대출 조건, 세법과 다를 수 있습니다. 중요한 결정은 전문가 상담과 최신 고시를 확인하시기 바랍니다.</p>
+            <p class="rent-notice__text">본 페이지의 계산 결과는 참고용 시뮬레이션이며, 실제 전세·월세 계약, 대출 조건, 세법과 다를 수 있습니다. 중요한 결정은 전문가 상담과
+                최신 고시를 확인하시기 바랍니다.</p>
         </div>
     </section>
 
     <div id="footer"></div>
 </body>
+
 </html>
